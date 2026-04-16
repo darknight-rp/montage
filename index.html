@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МонтажК Калобоя</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #0f172a, #1e293b);
+    color: #e5e7eb;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    font-size: 42px;
+    margin: 0;
+    color: #fbbf24;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background: #020617;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #fbbf24;
+}
+
+.hero {
+    height: 400px;
+    background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h2 {
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 28px;
+}
+
+.container {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card h3 {
+    color: #fbbf24;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #020617;
+}
+
+/* Scroll to top button */
+#topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #fbbf24;
+    color: black;
+    border: none;
+    padding: 15px 18px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+#topBtn:hover {
+    background: #f59e0b;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<h1>Монтаж Калобоя</h1>
+<p>Професионални индустриални решения</p>
+</header>
+
+<nav>
+<a href="#">Начало</a>
+<a href="#services">Услуги</a>
+<a href="#certificates">Сертификати</a>
+<a href="#contact">Контакти</a>
+</nav>
+
+<section class="hero">
+<h2>Висок клас монтаж и изработка</h2>
+</section>
+
+<div class="container" id="services">
+<h2>Нашите услуги</h2>
+<div class="services">
+
+<div class="card">
+<h3>Силози и резервоари</h3>
+<p>Монтаж на силози, резервоари и бункери.</p>
+</div>
+
+<div class="card">
+<h3>Транспортни системи</h3>
+<p>Редлери, елеватори, шнекове и транспортни ленти.</p>
+</div>
+
+<div class="card">
+<h3>Стоманени конструкции</h3>
+<p>Халета и метални конструкции.</p>
+</div>
+
+<div class="card">
+<h3>Рафинерии и пещи</h3>
+<p>Монтаж на индустриални съоръжения.</p>
+</div>
+
+<div class="card">
+<h3>Зърнени инсталации</h3>
+<p>Съхранение и обработка на зърно.</p>
+</div>
+
+</div>
+</div>
+
+<div class="container" id="certificates">
+<h2>Сертификати и референции</h2>
+<div class="services">
+
+<div class="card">
+<h3>Сертификат 1</h3>
+<img src="https://via.placeholder.com/300x200" style="width:100%; border-radius:10px;">
+<p>Описание на сертификата.</p>
+</div>
+
+<div class="card">
+<h3>Сертификат 2</h3>
+<img src="https://via.placeholder.com/300x200" style="width:100%; border-radius:10px;">
+<p>Описание на удостоверението.</p>
+</div>
+
+<div class="card">
+<h3>Референция 1</h3>
+<img src="https://github.com/darknight-rp/montage/blob/main/AES-212x300.jpg?raw=true" style="width:100%; border-radius:10px;">
+<p>Описание на референцията.</p>
+</div>
+
+<div class="card">
+<h3>Референция 2</h3>
+<img src="https://via.placeholder.com/300x200" style="width:100%; border-radius:10px;">
+<p>Описание на клиента.</p>
+</div>
+
+</div>
+</div>
+
+<div class="container" id="contact">
+<h2>Контакти</h2>
+<p>Управители: Христо Христов и Анна Тодорова</p>
+<p>Офис: 8602 Ямбол, България</p>
+<p>Телефон: 0888 123 456</p>
+<p>Email: info@montajk-kaloboya.bg</p>
+  <p>Производствена база: 8600 Ямбол, България кв.”Тракия” №100</p>
+</div>
+
+<footer>
+<p>© 2026 МонтажК Калобоя</p>
+</footer>
+
+<button id="topBtn" onclick="scrollToTop()">↑</button>
+
+<script>
+
+let topBtn = document.getElementById("topBtn");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
+
+</body>
+</html>
