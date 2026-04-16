@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>МонтажК Калyбоя</title>
+<title>МонтажК Калубоя</title>
 
 <style>
 body {
@@ -98,7 +98,6 @@ footer {
     background: #020617;
 }
 
-/* Scroll to top button */
 #topBtn {
     position: fixed;
     bottom: 30px;
@@ -112,15 +111,14 @@ footer {
     cursor: pointer;
     display: none;
     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    transition: 0.3s;
 }
 
 #topBtn:hover {
     background: #f59e0b;
 }
-
 </style>
 </head>
+
 <body>
 
 <header>
@@ -128,8 +126,9 @@ footer {
 <p>Професионални индустриални решения</p>
 </header>
 
-<nav> <a href="#">Начало</a> 
-<a href="#services">Услуги</a> 
+<nav>
+<a href="#">Начало</a>
+<a href="#services">Услуги</a>
 <a href="#projects">Проекти</a>
 <a href="#certificates">Сертификати</a>
 <a href="#contact">Контакти</a>
@@ -143,39 +142,17 @@ footer {
 <div class="container" id="services">
 <h2>Нашите услуги</h2>
 <div class="services">
-
-<div class="card">
-<h3>Силози и резервоари</h3>
-<p>Монтаж на силози, резервоари и бункери.</p>
-</div>
-
-<div class="card">
-<h3>Транспортни системи</h3>
-<p>Редлери, елеватори, шнекове и транспортни ленти.</p>
-</div>
-
-<div class="card">
-<h3>Стоманени конструкции</h3>
-<p>Халета и метални конструкции.</p>
-</div>
-
-<div class="card">
-<h3>Рафинерии и пещи</h3>
-<p>Монтаж на индустриални съоръжения.</p>
-</div>
-
-<div class="card">
-<h3>Зърнени инсталации</h3>
-<p>Съхранение и обработка на зърно.</p>
-</div>
-
+<div class="card"><h3>Силози и резервоари</h3><p>Монтаж на силози, резервоари и бункери.</p></div>
+<div class="card"><h3>Транспортни системи</h3><p>Редлери, елеватори, шнекове и транспортни ленти.</p></div>
+<div class="card"><h3>Стоманени конструкции</h3><p>Халета и метални конструкции.</p></div>
+<div class="card"><h3>Рафинерии и пещи</h3><p>Монтаж на индустриални съоръжения.</p></div>
+<div class="card"><h3>Зърнени инсталации</h3><p>Съхранение и обработка на зърно.</p></div>
 </div>
 </div>
 
 <div class="container" id="projects">
 <h2>Наши проекти</h2>
 <div class="services">
-
 <div class="card">
 <h3>Проект 1</h3>
 <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12" style="width:100%; border-radius:10px;">
@@ -185,63 +162,72 @@ footer {
 <div class="card">
 <h3>Проект 2</h3>
 <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0" style="width:100%; border-radius:10px;">
-<p>Изграждане на метална конструкция.</p>
+<p>Метална конструкция.</p>
 </div>
 
 <div class="card">
 <h3>Проект 3</h3>
 <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd" style="width:100%; border-radius:10px;">
-<p>Монтаж на транспортни системи.</p>
+<p>Транспортни системи.</p>
 </div>
 
 <div class="card">
 <h3>Проект 4</h3>
 <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df" style="width:100%; border-radius:10px;">
-<p>Зърнена база и съоръжения.</p>
+<p>Зърнена база.</p>
 </div>
-
 </div>
 </div>
 
 <div class="container" id="certificates">
 <h2>Лицензи и референции</h2>
 <div class="services">
-
 <div class="card">
 <h3>Лиценз</h3>
 <img src="https://via.placeholder.com/300x200" style="width:100%; border-radius:10px;">
-<p>Описание на Лиценз.</p>
+<p>Описание.</p>
 </div>
-
 
 <div class="card">
 <h3>Референция 1</h3>
 <img src="https://via.placeholder.com/300x200" style="width:100%; border-radius:10px;">
-<p>Описание на референцията.</p>
+<p>Описание.</p>
 </div>
 
 <div class="card">
 <h3>Референция 2</h3>
 <img src="https://via.placeholder.com/300x200" style="width:100%; border-radius:10px;">
-<p>Описание на клиента.</p>
+<p>Описание.</p>
+</div>
+</div>
 </div>
 
-</div>
-</div>
-
+<!-- FORM -->
 <div class="container" id="inquiry">
 <h2>Запитване</h2>
-<form style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-<input type="email" placeholder="Имейл адрес" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
-<input type="text" placeholder="Име" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
-<select style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<form id="contactForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="email" name="email" placeholder="Имейл адрес" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<input type="text" name="name" placeholder="Име" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<select name="type" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
 <option>Общи въпроси</option>
 <option>Оферта</option>
 <option>Проект</option>
 </select>
-<input type="text" placeholder="Заглавие" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
-<textarea placeholder="Вашето съобщение" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
-<button style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">Изпрати съобщение</button>
+
+<input type="text" name="title" placeholder="Заглавие" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<textarea name="message" placeholder="Вашето съобщение" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
+
+<button style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">
+Изпрати съобщение
+</button>
+
 </form>
 </div>
 
@@ -251,28 +237,17 @@ footer {
 <p>Офис: 8602 Ямбол, България</p>
 <p>Телефон: 0888 123 456</p>
 <p>Email: info@montajk-kaloboya.bg</p>
-  <p>Производствена база: 8600 Ямбол, България кв.”Тракия” №100</p>
-</div>
-
-<div class="container" id="contact">
-<h2>ДОПЪЛНИТЕЛНА ИНФОРМАЦИЯ</h2>
-<p>Нашата бизнес етика:</p>
-<p>Професионализъм;
-Високо качество;
-Бързина;
-Предприемчивост;
-Коректни взаимоотношения;
-Усъвършенстване;</p>
+<p>База: кв. „Тракия“ №100</p>
 </div>
 
 <footer>
-<p>© 2026 МонтажК Калyбоя</p>
+<p>© 2026 Монтаж Калубоя</p>
 </footer>
 
 <button id="topBtn" onclick="scrollToTop()">↑</button>
 
 <script>
-
+// scroll button
 let topBtn = document.getElementById("topBtn");
 
 window.onscroll = function() {
@@ -287,6 +262,21 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// AJAX form submit (без redirect)
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
+        method: "POST",
+        headers: { 'Accept': 'application/json' },
+        body: formData
+    });
+
+    alert("Съобщението е изпратено успешно!");
+    this.reset();
+});
 </script>
 
 </body>
