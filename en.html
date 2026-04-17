@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montazh Kauboya</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #0f172a, #1e293b);
+    color: #e5e7eb;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    font-size: 42px;
+    margin: 0;
+    color: #fbbf24;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+    background: #020617;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #fbbf24;
+}
+
+.hero {
+    height: 400px;
+    background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero h2 {
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 28px;
+}
+
+.container {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card h3 {
+    color: #fbbf24;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #020617;
+}
+
+#topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #fbbf24;
+    color: black;
+    border: none;
+    padding: 15px 18px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+#topBtn:hover {
+    background: #f59e0b;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>MONTAGE KAUBOYA LTD</h1>
+    <p>Professional industrial solutions</p>
+    <p>Our motto: "ON THE PATH OF GRAIN"</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#certificates">Certificates</a>
+<a href="#inquiry">Inquiry</a>
+<a href="#careers">Apply</a>
+<a href="#contact">Contacts</a>
+</nav>
+
+<section class="hero">
+<h2>High-class assembly and manufacturing</h2>
+
+<a href="#careers" style="
+    margin-top:20px;
+    display:inline-block;
+    padding:12px 20px;
+    background:#fbbf24;
+    color:black;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+">
+Apply Now
+</a>
+</section>
+
+<div class="container" id="services">
+<h2>Our Services</h2>
+<div class="services">
+<div class="card" onclick="location.href='silos.html'">
+<h3>Silos</h3>
+<p>Installation and systems</p>
+</div>
+<div class="card" onclick="location.href='trans.html'">
+<h3>Transport systems</h3>
+<p>Redlers, elevators, augers and conveyor belts</p>
+</div>
+<div class="card" onclick="location.href='stomana.html'">
+<h3>Steel structures</h3>
+<p>Steel structures</p>
+</div>
+<div class="card" onclick="location.href='pesh.html'">
+<h3>Refineries and furnaces</h3>
+<p>Installation of industrial facilities</p>
+</div>
+<div class="card" onclick="location.href='ref.html'">
+<h3>Grain installations</h3>
+<p>Storage and processing of grain</p>
+</div>
+</div>
+
+<div class="container" id="projects">
+<h2>Our Projects</h2>
+<div class="services">
+<div class="card">
+<h3>Project 1</h3>
+<img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12" style="width:100%; border-radius:10px;">
+<p>Installation of an industrial silo.</p>
+</div>
+
+<div class="card">
+<h3>Project 2</h3>
+<img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df" style="width:100%; border-radius:10px;">
+<p>Grain facility.</p>
+</div>
+</div>
+</div>
+
+<div class="container" id="certificates">
+<h2>Licenses and References</h2>
+<div class="services">
+
+<div class="card">
+<h3>License</h3>
+<img src="https://raw.githubusercontent.com/darknight-rp/montage/refs/heads/main/rotated_up.png" style="width:100%; border-radius:10px;">
+<p>Construction Chamber Certificate 2026</p>
+</div>
+
+<div class="card">
+<h3>License 2</h3>
+<img src="https://raw.githubusercontent.com/darknight-rp/montage/refs/heads/main/rotated2.png" style="width:100%; border-radius:10px;">
+<p>SMR Certificate Construction Chamber 2026</p>
+</div>
+
+<div class="card">
+<h3>Reference 1</h3>
+<img src="https://github.com/darknight-rp/montage/blob/main/IMG_1248-removebg-preview.png?raw=true" style="width:100%; border-radius:10px;">
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Reference 2</h3>
+<img src="https://github.com/darknight-rp/montage/blob/main/IMG_1245-removebg-preview.png?raw=true" style="width:100%; border-radius:10px;">
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Reference 3</h3>
+<img src="https://github.com/darknight-rp/montage/blob/main/IMG_1244-removebg-preview.png?raw=true" style="width:100%; border-radius:10px;">
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Reference 4</h3>
+<img src="https://github.com/darknight-rp/montage/blob/main/IMG_1239-removebg-preview.png?raw=true" style="width:100%; border-radius:10px;">
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Reference 5</h3>
+<img src="https://github.com/darknight-rp/montage/blob/main/IMG_1241-removebg-preview.png?raw=true" style="width:100%; border-radius:10px;">
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Reference 6</h3>
+<img src="https://github.com/darknight-rp/montage/blob/main/IMG_1236-removebg-preview.png?raw=true" style="width:100%; border-radius:10px;">
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Reference 7</h3>
+<img src="https://github.com/darknight-rp/montage/blob/main/IMG_1234-removebg-preview.png?raw=true" style="width:100%; border-radius:10px;">
+<p>Description.</p>
+</div>
+
+<div class="card">
+<h3>Reference 8</h3>
+<img src="https://github.com/darknight-rp/montage/blob/main/IMG_1233-removebg-preview%20(1).png?raw=true" style="width:100%; border-radius:10px;">
+<p>Description.</p>
+</div>
+
+</div>
+</div>
+
+<div class="container" id="inquiry">
+<h2>Inquiry</h2>
+
+<form id="contactForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
+
+<input type="email" name="email" placeholder="Email address" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<input type="text" name="name" placeholder="Name" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<select name="type" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+<option>General questions</option>
+<option>Offer</option>
+<option>Project</option>
+</select>
+
+<input type="text" name="title" placeholder="Title" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<textarea name="message" placeholder="Your message" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
+
+<button style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">
+Send Message
+</button>
+
+</form>
+</div>
+
+<div class="container" id="careers">
+<h2>Application</h2>
+
+<form id="careerForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
+
+<input type="text" name="name" placeholder="Full name" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<input type="email" name="email" placeholder="Email" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<input type="text" name="phone" placeholder="Phone" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<input type="text" name="position" placeholder="Position" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+
+<textarea name="message" placeholder="Introduction / experience" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
+
+<input type="file" name="cv" accept=".pdf,.doc,.docx" style="color:white;">
+
+<button style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#fbbf24,#f59e0b);color:black;font-size:16px;cursor:pointer;">
+Send Application
+</button>
+
+</form>
+</div>
+
+<div class="container" id="contact">
+<h2>Contacts</h2>
+<p>Managers: Anna Todorova and Hristo Hristov</p>
+<p>Phone: 0889221589</p>
+<p>Office: 8602 Yambol, Bulgaria</p>
+<p>Email: montazh.kauboya@gmail.com and montage_cowboy@abv.bg</p>
+<p>Base: Trakia district №100</p>
+</div>
+
+<div class="container" id="contact">
+<h2>ADDITIONAL INFORMATION</h2>
+<p>Our business ethics:</p>
+<p>Professionalism</p>
+<p>High quality</p>
+<p>Speed</p>
+<p>Entrepreneurship</p>
+<p>Correct relationships</p>
+<p>Improvement</p>
+</div>
+
+<footer>
+<p>© 2026 MONTAGE KAUBOYA LTD</p>
+</footer>
+
+<button id="topBtn" onclick="scrollToTop()">↑</button>
+
+<script>
+// scroll button
+let topBtn = document.getElementById("topBtn");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// contact form
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
+        method: "POST",
+        headers: { 'Accept': 'application/json' },
+        body: formData
+    });
+
+    alert("Message sent successfully!");
+    this.reset();
+});
+
+// career form
+document.getElementById("careerForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
+        method: "POST",
+        headers: { 'Accept': 'application/json' },
+        body: formData
+    });
+
+    alert("Application sent successfully!");
+    this.reset();
+});
+</script>
+
+</body>
+</html>
