@@ -8,27 +8,28 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f4f6f9;
-    color: #1f2937;
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: #e5e5e5;
 }
 
 /* HEADER */
 header {
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #0f172a, #1e3a8a);
-    color: white;
+    padding: 70px 20px;
+    background: linear-gradient(90deg, #111, #1f1f1f);
+    border-bottom: 2px solid #fbbf24;
 }
 
 header h1 {
+    font-size: 44px;
     margin: 0;
-    font-size: 42px;
-    letter-spacing: 1px;
+    color: #fbbf24;
+    letter-spacing: 2px;
 }
 
 header p {
-    opacity: 0.9;
+    color: #bbb;
 }
 
 /* NAV */
@@ -37,38 +38,27 @@ nav {
     justify-content: center;
     gap: 25px;
     padding: 15px;
-    background: white;
+    background: #111;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #222;
 }
 
 nav a {
+    color: #ddd;
     text-decoration: none;
-    color: #1f2937;
-    font-weight: 600;
-    position: relative;
-}
-
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0%;
-    height: 2px;
-    background: #2563eb;
+    font-weight: bold;
     transition: 0.3s;
 }
 
-nav a:hover::after {
-    width: 100%;
+nav a:hover {
+    color: #fbbf24;
 }
 
 /* HERO */
 .hero {
-    height: 420px;
+    height: 450px;
     background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover;
     display: flex;
     align-items: center;
@@ -80,17 +70,15 @@ nav a:hover::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(0,0,0,0.7);
 }
 
 .hero h2 {
     position: relative;
-    color: white;
-    font-size: 32px;
-    background: rgba(255,255,255,0.1);
+    font-size: 34px;
     padding: 20px 30px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6);
+    border-left: 5px solid #fbbf24;
 }
 
 /* CONTAINER */
@@ -109,43 +97,36 @@ nav a:hover::after {
 
 /* CARD */
 .card {
-    background: white;
-    border-radius: 18px;
+    background: #151515;
+    border: 1px solid #222;
     padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-radius: 10px;
     transition: 0.3s;
-    overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    transform: translateY(-6px);
+    border-color: #fbbf24;
+    box-shadow: 0 0 20px rgba(251,191,36,0.15);
 }
 
 .card h3 {
-    margin-top: 10px;
-    color: #1d4ed8;
+    color: #fbbf24;
 }
 
-/* IMAGES */
 .card img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-.card img:hover {
-    transform: scale(1.03);
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 30px;
-    background: #0f172a;
-    color: white;
-    margin-top: 50px;
+    background: #111;
+    border-top: 1px solid #222;
+    color: #aaa;
 }
 
 /* TOP BUTTON */
@@ -153,21 +134,20 @@ footer {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    background: #2563eb;
-    color: white;
+    background: #fbbf24;
+    color: #000;
     border: none;
-    padding: 14px 18px;
+    padding: 14px 16px;
     border-radius: 50%;
     cursor: pointer;
     display: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* LIGHTBOX */
 #lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.95);
     display: none;
     align-items: center;
     justify-content: center;
@@ -177,7 +157,8 @@ footer {
 #lightbox img {
     max-width: 90%;
     max-height: 90%;
-    border-radius: 12px;
+    border: 2px solid #fbbf24;
+    border-radius: 10px;
 }
 </style>
 </head>
