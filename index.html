@@ -12,7 +12,89 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 background: linear-gradient(to right, #0f172a, #1e293b);
 color: #e5e7eb;
 }
+  <section class="hero">
+  <h2>Висок клас монтаж и изработка</h2>
+</section>
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: #020617;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.hero h2 {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroUp 1s ease forwards;
+}
 
+.hero a {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+.services .card {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: cardUp 0.8s ease forwards;
+}
+
+/* забавяне по карти */
+.services .card:nth-child(1) { animation-delay: 0.1s; }
+.services .card:nth-child(2) { animation-delay: 0.2s; }
+.services .card:nth-child(3) { animation-delay: 0.3s; }
+.services .card:nth-child(4) { animation-delay: 0.4s; }
+.services .card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes cardUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes heroUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* анимация */
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+  opacity: 0;
+  transform: translateY(25px);
+  animation: slideUp 0.6s ease forwards;
+}
+
+/* stagger */
+.menu a:nth-child(1) { animation-delay: 0.1s; }
+.menu a:nth-child(2) { animation-delay: 0.2s; }
+.menu a:nth-child(3) { animation-delay: 0.3s; }
+.menu a:nth-child(4) { animation-delay: 0.4s; }
+.menu a:nth-child(5) { animation-delay: 0.5s; }
+.menu a:nth-child(6) { animation-delay: 0.6s; }
+.menu a:nth-child(7) { animation-delay: 0.7s; }
+.menu a:nth-child(8) { animation-delay: 0.8s; }
+.menu a:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* hover */
+.menu a:hover {
+  color: #fbbf24;
+}
 header {
 text-align: center;
 padding: 40px 20px;
@@ -147,15 +229,18 @@ background: #f59e0b;
 <p>Професионални индустриални решения</p>
 <p>Нашият девиз: „ПО ПЪТЯ НА ЗЪРНОТО”</p>
 </header>
-<nav>&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; <a href="#">Начало</a> <a
-href="#services">Услуги</a> <a href="#projects">Проекти</a> <a
-href="#certificates">Сертификати</a> <a href="#inquiry">Запитване</a>
-<a href="#careers">Кандидатура</a> <a href="maps.html">карта</a>
-<a href="#contact">Контакти
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-&nbsp; &nbsp;&nbsp; </a><br>
-<a href="en.html">english</a><br>
+<nav class="menu">
+  <a href="#">Начало</a>
+  <a href="#services">Услуги</a>
+  <a href="#projects">Проекти</a>
+  <a href="#certificates">Референция</a>
+  <a href="#dddd">Лицензи</a>
+  <a href="#inquiry">Запитване</a>
+  <a href="#careers">Кандидатура</a>
+  <a href="maps.html">карта</a>
+  <a href="#contact">Контакти</a>
+ &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; <a href="en.html">english</a>
 </nav>
 <section class="hero">
 <h2>Висок клас монтаж и изработка</h2>
@@ -207,22 +292,8 @@ style="width:100%; border-radius:10px;">
 </div>
 </div>
 <div class="container" id="certificates">
-<h2>Лицензи и референции</h2>
+<h2>Референции</h2>
 <div class="services">
-<div class="card">
-<h3>Лиценз</h3>
-<img
-src="https://raw.githubusercontent.com/darknight-rp/montage/refs/heads/main/rotated_up.png"
-style="width:100%; border-radius:10px;">
-<p>Удостоверение Камара на строителите 2026</p>
-</div>
-<div class="card">
-<h3>Лиценз 2</h3>
-<img
-src="https://raw.githubusercontent.com/darknight-rp/montage/refs/heads/main/rotated2.png"
-style="width:100%; border-radius:10px;">
-<p>Удостоверение СМР Камара на строителите 2026</p>
-</div>
 <div class="card">
 <h3>Референция 1</h3>
 <img
@@ -281,8 +352,8 @@ style="width:100%; border-radius:10px;">
 </div>
 </div>
 </div>
-<div class="container" id="certificates">
-<h2>Лицензи и референции</h2>
+<div class="container" id="dddd">
+<h2>Лицензи </h2>
 <div class="services">
 <div class="card">
 <h3>Лиценз</h3>
