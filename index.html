@@ -123,29 +123,15 @@ nav a:hover {
     overflow: hidden;
 }
 
-.card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent, rgba(251,191,36,0.3), transparent);
-    opacity: 0;
-    transition: 0.4s;
-}
-
-.card:hover::before {
-    opacity: 1;
-}
-
 .card:hover {
-    transform: translateY(-12px) scale(1.03);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    transform: translateY(-10px) scale(1.02);
 }
 
 .card h3 {
     color: #fbbf24;
 }
 
-/* IMAGE */
+/* IMAGES */
 .card img {
     width: 100%;
     border-radius: 10px;
@@ -179,11 +165,6 @@ footer {
     cursor: pointer;
     display: none;
     box-shadow: 0 10px 25px rgba(251,191,36,0.4);
-    transition: 0.3s;
-}
-
-#topBtn:hover {
-    transform: scale(1.1);
 }
 
 /* LIGHTBOX */
@@ -201,7 +182,6 @@ footer {
     max-width: 90%;
     max-height: 90%;
     border-radius: 15px;
-    box-shadow: 0 0 40px rgba(0,0,0,0.8);
     animation: zoomIn 0.25s ease;
 }
 
