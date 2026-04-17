@@ -72,7 +72,9 @@ nav a {
     max-width: 1200px;
     margin: auto;
 }
-
+.header {
+  padding-left: 200px; /* махни или намали */
+}
 /* GRID */
 .services {
     display: grid;
@@ -131,6 +133,11 @@ nav a {
     from { transform: scale(0.7); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+    .header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 /* FOOTER */
 footer {
@@ -158,8 +165,10 @@ footer {
 <body>
 
 <header>
-<div class="logo-title">
- <img src="https://69e22fce34143f3e5d8aac4b.imgix.net/logo/%D0%BB%D0%BE%D0%B3%D0%BE.png?w=145&h=73&fm=avif&bg-remove=true">          <h1>МОНТАЖ КАУБОЯ ООД</h1>
+<div class="header-container">
+  <img src="logo.png">
+  <div class="title-text">
+    <h1>МОНТАЖ КАУБОЯ ООД</h1>>
 </div>
 <p>Професионални индустриални решения</p>
 <p>Нашият девиз: „ПО ПЪТЯ НА ЗЪРНОТО”
