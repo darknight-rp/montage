@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,
 initial-scale=1.0">
-<title>Montazh Kauboya Ltd</title>
+<title>Montazh Cowboy Ltd</title>
 <style>
 body {
 margin: 0;
@@ -12,15 +12,133 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 background: linear-gradient(to right, #0f172a, #1e293b);
 color: #e5e7eb;
 }
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  background: #020617;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.hero h2 {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroUp 1s ease forwards;
+}
+
+.hero a {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.services .card {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: cardUp 0.8s ease forwards;
+}
+
+.services .card:nth-child(1) { animation-delay: 0.1s; }
+.services .card:nth-child(2) { animation-delay: 0.2s; }
+.services .card:nth-child(3) { animation-delay: 0.3s; }
+.services .card:nth-child(4) { animation-delay: 0.4s; }
+.services .card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes cardUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #fbbf24;
+}
+
+header {
+text-align: center;
+padding: 40px 20px;
+background: rgba(0,0,0,0.6);
+backdrop-filter: blur(10px);
+}
+
+header h1 {
+font-size: 42px;
+margin: 0;
+color: #fbbf24;
+}
+
+.hero {
+height: 400px;
+background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+
+.hero h2 {
+background: rgba(0,0,0,0.7);
+padding: 20px;
+border-radius: 15px;
+font-size: 28px;
+}
+
+.container {
+padding: 60px 20px;
+max-width: 1200px;
+margin: auto;
+}
+
+.services {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 25px;
+}
+
+.card {
+background: rgba(255,255,255,0.05);
+padding: 25px;
+border-radius: 20px;
+backdrop-filter: blur(10px);
+transition: 0.3s;
+}
+
+.card:hover {
+transform: translateY(-10px) scale(1.02);
+box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card h3 {
+color: #fbbf24;
+}
+
+footer {
+text-align: center;
+padding: 30px;
+background: #020617;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>MONTAGH KAUBOYA LTD</h1>
+<h1>MONTAGE COWBOY LTD</h1>
 <p>Professional industrial solutions</p>
-<p>Our motto: “ON THE PATH OF GRAIN”</p>
+<p>Our motto: "ON THE PATH OF GRAIN"</p>
 </header>
 
 <nav class="menu">
@@ -33,43 +151,42 @@ color: #e5e7eb;
   <a href="#careers">Application</a>
   <a href="maps.html">Map</a>
   <a href="#contact">Contacts</a>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="index.html">Български</a>
+  <a href="en.html">English</a>
 </nav>
 
 <section class="hero">
-<h2>High-class installation and fabrication</h2>
-<a href="#careers" style=" margin-top:20px; display:inline-block;
+<h2>High-class assembly and fabrication</h2>
+<a href="#careers" style="margin-top:20px; display:inline-block;
 padding:12px 20px; background:#fbbf24; color:black;
-text-decoration:none; border-radius:10px; font-weight:bold; ">
+text-decoration:none; border-radius:10px; font-weight:bold;">
 Apply now</a>
 </section>
 
 <div class="container" id="services">
-<h2>Our Services</h2>
+<h2>Our services</h2>
 <div class="services">
 
-<div class="card" onclick="location.href='silos.html'">
+<div class="card">
 <h3>Silos</h3>
 <p>Installation and systems</p>
 </div>
 
-<div class="card" onclick="location.href='trans.html'">
+<div class="card">
 <h3>Transport systems</h3>
-<p>Drag conveyors, elevators, augers and conveyor belts</p>
+<p>Redlers, elevators, augers and conveyor belts</p>
 </div>
 
-<div class="card" onclick="location.href='stomana.html'">
+<div class="card">
 <h3>Steel structures</h3>
 <p>Steel structures</p>
 </div>
 
-<div class="card" onclick="location.href='pesh.html'">
+<div class="card">
 <h3>Refineries and furnaces</h3>
 <p>Installation of industrial facilities</p>
 </div>
 
-<div class="card" onclick="location.href='ref.html'">
+<div class="card">
 <h3>Grain facilities</h3>
 <p>Grain storage and processing</p>
 </div>
@@ -78,21 +195,17 @@ Apply now</a>
 </div>
 
 <div class="container" id="projects">
-<h2>Our Projects</h2>
+<h2>Our projects</h2>
 <div class="services">
 
 <div class="card">
 <h3>Project 1</h3>
-<img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12"
-style="width:100%; border-radius:10px;">
 <p>Installation of an industrial silo.</p>
 </div>
 
 <div class="card">
 <h3>Project 2</h3>
-<img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df"
-style="width:100%; border-radius:10px;">
-<p>Grain facility.</p>
+<p>Grain base.</p>
 </div>
 
 </div>
@@ -104,42 +217,12 @@ style="width:100%; border-radius:10px;">
 
 <div class="card">
 <h3>Reference 1</h3>
-<p>Description.</p>
+<p>Description</p>
 </div>
 
 <div class="card">
 <h3>Reference 2</h3>
-<p>Description.</p>
-</div>
-
-<div class="card">
-<h3>Reference 3</h3>
-<p>Description.</p>
-</div>
-
-<div class="card">
-<h3>Reference 4</h3>
-<p>Description.</p>
-</div>
-
-<div class="card">
-<h3>Reference 5</h3>
-<p>Description.</p>
-</div>
-
-<div class="card">
-<h3>Reference 6</h3>
-<p>Description.</p>
-</div>
-
-<div class="card">
-<h3>Reference 7</h3>
-<p>Description.</p>
-</div>
-
-<div class="card">
-<h3>Reference 8</h3>
-<p>Description.</p>
+<p>Description</p>
 </div>
 
 </div>
@@ -151,12 +234,12 @@ style="width:100%; border-radius:10px;">
 
 <div class="card">
 <h3>License</h3>
-<p>Certificate of the Chamber of Builders 2026</p>
+<p>Construction Chamber Certificate 2026</p>
 </div>
 
 <div class="card">
 <h3>License 2</h3>
-<p>Construction and installation works certificate – Chamber of Builders 2026</p>
+<p>SMR Construction Chamber Certificate 2026</p>
 </div>
 
 </div>
@@ -164,72 +247,33 @@ style="width:100%; border-radius:10px;">
 
 <div class="container" id="inquiry">
 <h2>Inquiry</h2>
+<form>
+<input placeholder="Email address" type="email">
+<input placeholder="Name" type="text">
 
-<form id="contactForm"
-style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-
-<input name="email" placeholder="Email address" required
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;"
-type="email">
-
-<input name="name" placeholder="Name"
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;"
-type="text">
-
-<select name="type"
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
-<option selected>General questions</option>
+<select>
+<option>General questions</option>
 <option>Offer</option>
 <option>Project</option>
 </select>
 
-<input name="title" placeholder="Subject" required
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;"
-type="text">
+<input placeholder="Title" type="text">
+<textarea placeholder="Your message"></textarea>
 
-<textarea name="message" placeholder="Your message" required
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
-
-<button
-style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">
-Send message
-</button>
-
+<button>Send message</button>
 </form>
 </div>
 
 <div class="container" id="careers">
 <h2>Application</h2>
-
-<form id="careerForm"
-style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-
-<input name="name" placeholder="Full name" required
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;"
-type="text">
-
-<input name="email" placeholder="Email" required
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;"
-type="email">
-
-<input name="phone" placeholder="Phone" required
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;"
-type="text">
-
-<input name="position" placeholder="Position"
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;"
-type="text">
-
-<textarea name="message" placeholder="Introduction / experience" required
-style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
-
-<input name="cv" accept=".pdf,.doc,.docx" type="file" style="color:white;">
-
-<button
-style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#fbbf24,#f59e0b);color:black;font-size:16px;cursor:pointer;">
-Submit application
-</button>
-
+<form>
+<input placeholder="Full name" type="text">
+<input placeholder="Email" type="email">
+<input placeholder="Phone" type="text">
+<input placeholder="Position" type="text">
+<textarea placeholder="Introduction / experience"></textarea>
+<input type="file">
+<button>Submit application</button>
 </form>
 </div>
 
@@ -239,7 +283,7 @@ Submit application
 <p>Phone: 0889221589</p>
 <p>Office: 8602 Yambol, Bulgaria</p>
 <p>Email: montazh.kauboya@gmail.com and montage_cowboy@abv.bg</p>
-<p>Base: Trakia district No. 100</p>
+<p>Base: Trakia district №100</p>
 </div>
 
 <div class="container">
@@ -249,12 +293,12 @@ Submit application
 <p>High quality</p>
 <p>Speed</p>
 <p>Entrepreneurship</p>
-<p>Fair relations</p>
-<p>Continuous improvement</p>
+<p>Fair relationships</p>
+<p>Improvement</p>
 </div>
 
 <footer>
-<p>© 2026 MONTAGH KAUBOYA LTD</p>
+<p>© 2026 MONTAGE COWBOY LTD</p>
 </footer>
 
 </body>
