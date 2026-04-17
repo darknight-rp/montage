@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,
 initial-scale=1.0">
 <title>Монтаж Каубоя </title>
+<style>
 body {
 margin: 0;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -67,20 +68,7 @@ font-size: 28px;
 padding: 60px 20px;
 max-width: 1200px;
 margin: auto;
-}
-
-/* 🔥 АНИМАЦИЯ */
-.fade-up {
-opacity: 0;
-transform: translateY(50px);
-animation: fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp {
-to {
-opacity: 1;
-transform: translateY(0);
-}
+  <div class="container fade-up">
 }
 
 .services {
@@ -111,6 +99,18 @@ text-align: center;
 padding: 30px;
 background: #020617;
 }
+  .fade-up {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 #topBtn {
 position: fixed;
@@ -125,6 +125,10 @@ font-size: 18px;
 cursor: pointer;
 display: none;
 box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+#topBtn:hover {
+background: #f59e0b;
 }
 
 #topBtn:hover {
