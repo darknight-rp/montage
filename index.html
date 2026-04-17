@@ -145,6 +145,18 @@ nav a:hover {
     color: #fbbf24;
 }
 
+/* IMAGE */
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -172,23 +184,13 @@ footer {
 
 #topBtn:hover {
     transform: scale(1.1);
-    box-shadow: 0 15px 35px rgba(251,191,36,0.6);
-}
-    /* IMAGE ZOOM */
-.card img {
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.card img:hover {
-    transform: scale(1.05);
 }
 
 /* LIGHTBOX */
 #lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.92);
     display: none;
     align-items: center;
     justify-content: center;
@@ -200,23 +202,17 @@ footer {
     max-height: 90%;
     border-radius: 15px;
     box-shadow: 0 0 40px rgba(0,0,0,0.8);
-    animation: zoomIn 0.3s ease;
+    animation: zoomIn 0.25s ease;
 }
 
 @keyframes zoomIn {
     from { transform: scale(0.7); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
-
 </style>
 </head>
-    
 
 <body>
-
-<div id="lightbox" onclick="closeLightbox()">
-    <img id="lightboxImg">
-</div>
 
 <header>
 <div class="logo-title">
@@ -385,26 +381,27 @@ footer {
 
 <button id="topBtn" onclick="scrollToTop()">↑</button>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightboxImg">
+</div>
+
 <script>
-// scroll button
+// TOP BUTTON
 let topBtn = document.getElementById("topBtn");
 
 window.onscroll = function() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
+    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
 };
 
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-    // LIGHTBOX
+
+// LIGHTBOX
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 
-// добавя click на всички снимки
 document.querySelectorAll(".card img").forEach(img => {
     img.addEventListener("click", () => {
         lightbox.style.display = "flex";
@@ -415,23 +412,6 @@ document.querySelectorAll(".card img").forEach(img => {
 function closeLightbox() {
     lightbox.style.display = "none";
 }
-
-
-// AJAX form submit (без redirect)
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
-
-    await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
-        method: "POST",
-        headers: { 'Accept': 'application/json' },
-        body: formData
-    });
-
-    alert("Съобщението е изпратено успешно!");
-    this.reset();
-});
 </script>
 
 </body>
