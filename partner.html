@@ -2,79 +2,284 @@
 <html lang="bg">
 <head>
 <meta charset="UTF-8">
-<title>Силози</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Партньори</title>
 <style>
+:root {
+    --bg-main: #07111f;
+    --bg-soft: rgba(11, 28, 48, 0.72);
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.16);
+    --text-main: #eef4ff;
+    --text-soft: #bfd2ee;
+    --gold: #f7b731;
+    --green: #3ddc97;
+    --blue: #66b3ff;
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    margin:0;
-    font-family:Arial;
-    background:#0f172a;
-    color:white;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: var(--text-main);
+    background:
+        radial-gradient(circle at top left, rgba(247, 183, 49, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(61, 220, 151, 0.14), transparent 26%),
+        linear-gradient(135deg, #08111d 0%, #10233f 50%, #07111f 100%);
 }
 
-header {
-    padding:30px;
-    text-align:center;
-    background:rgba(0,0,0,0.6);
+.hero {
+    padding: 72px 20px 36px;
+    text-align: center;
 }
 
-h1 { color:#fbbf24; }
+.hero-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid rgba(247, 183, 49, 0.35);
+    border-radius: 999px;
+    background: rgba(247, 183, 49, 0.12);
+    color: #ffd978;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 18px 0 12px;
+    font-size: clamp(36px, 7vw, 68px);
+    line-height: 1;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--text-soft);
+    font-size: 18px;
+    line-height: 1.7;
+}
 
 .container {
-    max-width:900px;
-    margin:auto;
-    padding:30px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 10px 20px 60px;
 }
 
-img {
-    width:100%;
-    border-radius:15px;
-    margin-top:20px;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    min-height: 210px;
+    padding: 26px;
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(102, 179, 255, 0.10), transparent 45%, rgba(247, 183, 49, 0.08));
+    pointer-events: none;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(247, 183, 49, 0.42);
+    box-shadow: 0 28px 65px rgba(0, 0, 0, 0.42);
+}
+
+.card-tag {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(61, 220, 151, 0.14);
+    color: #8af0c0;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.card h2 {
+    position: relative;
+    margin: 0 0 12px;
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.card p {
+    position: relative;
+    margin: 0;
+    color: var(--text-soft);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.partner-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    color: #ffd978;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.partner-link:hover {
+    color: #ffffff;
+}
+
+.note {
+    margin-top: 30px;
+    padding: 20px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-soft);
+    line-height: 1.7;
 }
 
 .buttons {
-    display:flex;
-    gap:10px;
-    margin-top:25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 34px;
 }
 
-button {
-    padding:12px 15px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
+.action-btn {
+    min-width: 170px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
-.back { background:#fbbf24; }
-.home { background:#22c55e; }
+.action-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.96;
+}
+
+.back {
+    background: linear-gradient(135deg, #f7b731, #ffcf66);
+    color: #162032;
+    box-shadow: 0 12px 28px rgba(247, 183, 49, 0.28);
+}
+
+.home {
+    background: linear-gradient(135deg, #2ed38d, #7cf0bd);
+    color: #072116;
+    box-shadow: 0 12px 28px rgba(46, 211, 141, 0.24);
+}
+
+@media (max-width: 700px) {
+    .hero {
+        padding-top: 56px;
+    }
+
+    .card {
+        min-height: auto;
+    }
+
+    .action-btn {
+        width: 100%;
+    }
+}
 </style>
 </head>
-
 <body>
+<section class="hero">
+    <span class="hero-badge">Партньорска мрежа</span>
+    <h1>Нашите партньори</h1>
+    <p>
+        Представяме компаниите, с които работим и развиваме стабилни бизнес отношения.
+        При наличен уебсайт можеш да натиснеш линка и той ще се отвори директно.
+    </p>
+</section>
 
-<header>
-<h1>Партньори</h1>
-</header>
+<main class="container">
+    <section class="grid">
+        <article class="card">
+            <span class="card-tag">Уебсайт</span>
+            <h2>Мартекс Трейд ЕООД</h2>
+            <p>Дългогодишен партньор с активно онлайн присъствие.</p>
+            <a class="partner-link" href="http://fence.bg" target="_blank" rel="noopener noreferrer">Посети fence.bg</a>
+        </article>
 
-<div class="container">
+        <article class="card">
+            <span class="card-tag">Контакти</span>
+            <h2>КЗУ-Бургас ЕООД</h2>
+            <p>Тел: 056/898019<br>Факс: 056/898020</p>
+        </article>
 
-<p>Мартекс Трейд“ ЕООД http://fence.bg.</p>
-<p>КЗУ-Бургас”ЕООД  Тел: 056/898019   Факс: 056/898020</p>
-<p>Диана комерс-1″ЕООД http://www.dianacommerce.com/</p>
-<p>ПИ ЕЛ СИ Транс” ООД http://www.plc-trans.com/</p>
+        <article class="card">
+            <span class="card-tag">Уебсайт</span>
+            <h2>Диана Комерс-1 ЕООД</h2>
+            <p>Партньор с утвърдено присъствие и корпоративен сайт.</p>
+            <a class="partner-link" href="http://www.dianacommerce.com/" target="_blank" rel="noopener noreferrer">Посети dianacommerce.com</a>
+        </article>
 
+        <article class="card">
+            <span class="card-tag">Уебсайт</span>
+            <h2>ПИ ЕЛ СИ Транс ООД</h2>
+            <p>Логистичен и транспортен партньор с фирмен уебсайт.</p>
+            <a class="partner-link" href="http://www.plc-trans.com/" target="_blank" rel="noopener noreferrer">Посети plc-trans.com</a>
+        </article>
 
-<div class="buttons">
+        <article class="card">
+            <span class="card-tag">Нов партньор</span>
+            <h2>Папас Олио</h2>
+            <p>Добавен към списъка с партньори.</p>
+        </article>
 
-<!-- ВАЖНО: винаги работи -->
-<button class="back" onclick="window.location.href='index.html'">⬅ Назад</button>
+        <article class="card">
+            <span class="card-tag">Нов партньор</span>
+            <h2>ЕАДЕ</h2>
+            <p>Добавен към секцията с партньорски компании.</p>
+        </article>
 
-<button class="home" onclick="window.location.href='index.html'">🏠 Начало</button>
+        <article class="card">
+            <span class="card-tag">Нов партньор</span>
+            <h2>Зърнени храни 99</h2>
+            <p>Част от разширения списък с ключови партньори.</p>
+        </article>
 
-</div>
+        <article class="card">
+            <span class="card-tag">Нов партньор</span>
+            <h2>Екобулпак</h2>
+            <p>Включен като ново име в партньорската мрежа.</p>
+        </article>
+    </section>
 
-</div>
+    <div class="note">
+        Ако искаш, мога следващата стъпка да направя и отделни бутони, лога или снимки за всяка фирма,
+        за да стане страницата още по-представителна.
+    </div>
 
+    <div class="buttons">
+        <button class="action-btn back" onclick="window.location.href='index.html'">Назад</button>
+        <button class="action-btn home" onclick="window.location.href='index.html'">Начало</button>
+    </div>
+</main>
 </body>
 </html>
