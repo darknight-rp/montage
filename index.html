@@ -192,24 +192,93 @@
     .lightbox {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      padding: 20px;
+      padding: 20px 80px;
       box-sizing: border-box;
+    }
+
+    .lightbox-content {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .lightbox-img-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
     }
 
     .lightbox img {
       max-width: 90%;
       max-height: 90%;
       border-radius: 10px;
-      cursor: zoom-out;
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+      transform: scale(1);
+      transform-origin: center center;
+      transition: transform 0.2s ease;
+      cursor: default;
+    }
+
+    .zoom-btn,
+    .close-btn {
+      position: absolute;
+      border: none;
+      cursor: pointer;
+      font-size: 28px;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(251, 191, 36, 0.95);
+      color: #111827;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      transition: 0.2s ease;
+    }
+
+    .zoom-btn:hover,
+    .close-btn:hover {
+      background: #f59e0b;
+      transform: scale(1.08);
+    }
+
+    .zoom-in {
+      right: 10px;
+      top: 50%;
+      transform: translateY(-120%);
+    }
+
+    .zoom-out {
+      right: 10px;
+      top: 50%;
+      transform: translateY(20%);
+    }
+
+    .zoom-in:hover {
+      transform: translateY(-120%) scale(1.08);
+    }
+
+    .zoom-out:hover {
+      transform: translateY(20%) scale(1.08);
+    }
+
+    .close-btn {
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.95);
     }
 
     footer {
@@ -252,6 +321,16 @@
 
       .menu, nav {
         gap: 12px;
+      }
+
+      .lightbox {
+        padding: 20px 70px 20px 20px;
+      }
+
+      .zoom-btn {
+        width: 46px;
+        height: 46px;
+        font-size: 24px;
       }
     }
   </style>
@@ -312,8 +391,7 @@
     </div>
   </div>
 
-  <div class="container" id="projects">
-  </div>
+  <div class="container" id="projects"></div>
 
   <div class="container" id="certificates">
     <h2>Референции</h2>
@@ -438,12 +516,25 @@
 
   <button id="topBtn" onclick="scrollToTop()">↑</button>
 
-  <div id="lightbox" class="lightbox" onclick="closeImg()">
-    <img id="lightbox-img" src="" alt="Увеличена снимка">
+  <div id="lightbox" class="lightbox" onclick="closeImg(event)">
+    <div class="lightbox-content">
+      <button class="close-btn" onclick="closeImg(event)">×</button>
+      <button class="zoom-btn zoom-in" onclick="zoomIn(event)">+</button>
+      <button class="zoom-btn zoom-out" onclick="zoomOut(event)">−</button>
+
+      <div class="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="Увеличена снимка" onclick="event.stopPropagation()">
+      </div>
+    </div>
   </div>
 
   <script>
     let topBtn = document.getElementById("topBtn");
+    let zoomLevel = 1;
+    const zoomStep = 0.2;
+    const maxZoom = 3;
+    const minZoom = 0.6;
+    const lightboxImg = document.getElementById("lightbox-img");
 
     window.onscroll = function () {
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -454,17 +545,62 @@
     };
 
     function openImg(src) {
-      document.getElementById("lightbox-img").src = src;
+      zoomLevel = 1;
+      lightboxImg.src = src;
+      updateZoom();
       document.getElementById("lightbox").style.display = "flex";
     }
 
-    function closeImg() {
-      document.getElementById("lightbox").style.display = "none";
+    function closeImg(event) {
+      if (!event || event.target.id === "lightbox" || event.currentTarget.classList.contains("close-btn")) {
+        document.getElementById("lightbox").style.display = "none";
+      }
+    }
+
+    function zoomIn(event) {
+      event.stopPropagation();
+      if (zoomLevel < maxZoom) {
+        zoomLevel += zoomStep;
+        updateZoom();
+      }
+    }
+
+    function zoomOut(event) {
+      event.stopPropagation();
+      if (zoomLevel > minZoom) {
+        zoomLevel -= zoomStep;
+        updateZoom();
+      }
+    }
+
+    function updateZoom() {
+      lightboxImg.style.transform = "scale(" + zoomLevel + ")";
     }
 
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+
+    document.addEventListener("keydown", function(e) {
+      const lightbox = document.getElementById("lightbox");
+      if (lightbox.style.display === "flex") {
+        if (e.key === "Escape") {
+          lightbox.style.display = "none";
+        }
+        if (e.key === "+" || e.key === "=") {
+          if (zoomLevel < maxZoom) {
+            zoomLevel += zoomStep;
+            updateZoom();
+          }
+        }
+        if (e.key === "-") {
+          if (zoomLevel > minZoom) {
+            zoomLevel -= zoomStep;
+            updateZoom();
+          }
+        }
+      }
+    });
 
     document.getElementById("contactForm").addEventListener("submit", async function (e) {
       e.preventDefault();
