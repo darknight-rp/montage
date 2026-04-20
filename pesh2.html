@@ -78,7 +78,7 @@ We work with metal structures, high-temperature systems, and industrial equipmen
 <div class="buttons">
 
 <!-- IMPORTANT: always works -->
-<button class="back" onclick="window.location.href='index.html'">⬅ Back</button>
+<button class="back" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }">⬅ Назад</button>
 
 <button class="home" onclick="window.location.href='index.html'">🏠 Home</button>
 
