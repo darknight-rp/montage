@@ -485,7 +485,8 @@ topBtn.style.display = "block";
 topBtn.style.display = "none";
 }
 };
-<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox" onclick="closeImg()">
   <img id="lightbox-img">
 </div>
 
@@ -493,6 +494,10 @@ topBtn.style.display = "none";
 function openImg(src){
   document.getElementById("lightbox-img").src = src;
   document.getElementById("lightbox").style.display = "flex";
+}
+
+function closeImg(){
+  document.getElementById("lightbox").style.display = "none";
 }
 </script>
 
@@ -534,4 +539,3 @@ this.reset();
 </script></div>
 </body>
 </html>
-
