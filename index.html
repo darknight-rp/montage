@@ -69,6 +69,52 @@
       background: #fbbf24;
     }
 
+    .top-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 24px;
+      background: #4a4d53;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .top-strip-left,
+    .top-strip-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .top-strip-right {
+      justify-content: flex-end;
+    }
+
+    .top-strip-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .top-strip a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .top-strip a:hover {
+      opacity: 0.75;
+    }
+
+    .top-icon {
+      font-size: 16px;
+      line-height: 1;
+    }
+
     .menu {
       display: flex;
       justify-content: center;
@@ -570,6 +616,20 @@
     }
 
     @media (max-width: 768px) {
+      .top-strip {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .top-strip-right {
+        justify-content: flex-start;
+      }
+
+      .top-strip-divider {
+        display: none;
+      }
+
       header {
         padding: 56px 18px 42px;
       }
@@ -624,6 +684,16 @@
   </style>
 </head>
 <body>
+
+  <div class="top-strip">
+    <div class="top-strip-left">
+      <span>Част от Монтаж Каубоя ООД</span>
+    </div>
+    <div class="top-strip-right">
+      <span><span class="top-icon">📞</span> 088 922 1597 / 088 922 1589</span>
+      <span class="top-strip-divider"></span>
+    </div>
+  </div>
 
   <header>
     <h1>МОНТАЖ КАУБОЯ ООД</h1>
