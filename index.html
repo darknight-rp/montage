@@ -457,6 +457,31 @@
       box-shadow: var(--shadow);
     }
 
+    .inquiry-intro {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      padding: 24px 26px;
+      background: linear-gradient(180deg, rgba(10, 25, 47, 0.8), rgba(7, 18, 36, 0.92));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .inquiry-intro h3 {
+      margin: 0 0 12px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .inquiry-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
     input, textarea, select, button {
       font-family: inherit;
     }
@@ -576,7 +601,8 @@
       }
 
       .card,
-      form {
+      form,
+      .inquiry-intro {
         padding: 22px;
       }
 
@@ -614,10 +640,10 @@
     <a href="#inquiry">Запитване</a>
     <a href="#careers">Кандидатура</a>
     <a href="maps.html">Карта</a>
-   <a href="partner.html">Партньори</a>
+    <a href="partner.html">Партньори</a>
     <a href="#contact">Контакти&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
 &nbsp; &nbsp;&nbsp; </a><br>
-    
+
     <a href="en.html">English</a>
   </nav>
 
@@ -694,7 +720,7 @@
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция6.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 7">
         <p>Описание.</p>
       </div>
-         <div class="card">
+      <div class="card">
         <h3>Референция 8</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция7.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 8">
         <p>Описание.</p>
@@ -725,6 +751,10 @@
 
   <div class="container" id="inquiry">
     <h2>Запитване</h2>
+    <div class="inquiry-intro">
+      <h3>Пишете ни</h3>
+      <p>Ако желаете да се свържете с нас, освен по телефон, факс и имейл, можете да ни изпратите съобщение и през формата за Запитване Ще ви отговорим при първа възможност.</p>
+    </div>
     <form id="contactForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
       <input name="email" placeholder="Имейл адрес" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="email">
       <input name="name" placeholder="Име" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
