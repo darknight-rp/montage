@@ -2,80 +2,314 @@
 <html lang="bg">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Стоманени конструкции</title>
 
 <style>
+:root {
+    --bg: #f4efe6;
+    --surface: rgba(255, 250, 242, 0.92);
+    --surface-strong: #fffdf8;
+    --text: #2b241c;
+    --muted: #6f6256;
+    --accent: #c56a1b;
+    --accent-dark: #8f4710;
+    --line: rgba(123, 92, 62, 0.16);
+    --shadow: 0 18px 45px rgba(74, 48, 22, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    margin:0;
-    font-family:Arial;
-    background:#0f172a;
-    color:white;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(230, 178, 102, 0.35), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(155, 101, 42, 0.18), transparent 28%),
+        linear-gradient(135deg, #ede4d5 0%, #f7f3eb 48%, #e9dcc9 100%);
+    line-height: 1.7;
 }
 
-header {
-    padding:30px;
-    text-align:center;
-    background:rgba(0,0,0,0.6);
+.hero {
+    padding: 72px 20px 48px;
+    text-align: center;
 }
 
-h1 { color:#fbbf24; }
+.hero-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 38px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 28px;
+    background: linear-gradient(145deg, rgba(88, 57, 27, 0.88), rgba(46, 31, 18, 0.94));
+    box-shadow: var(--shadow);
+    color: #fffaf4;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffd8ae;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 18px 0 12px;
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    line-height: 1.1;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: rgba(255, 247, 238, 0.84);
+    font-size: 1.05rem;
+}
 
 .container {
-    max-width:900px;
-    margin:auto;
-    padding:30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 56px;
 }
 
-img {
-    width:100%;
-    border-radius:15px;
-    margin-top:20px;
+.grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.card {
+    padding: 28px;
+    border-radius: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.5rem;
+    color: var(--accent-dark);
+}
+
+.card h3 {
+    margin: 24px 0 10px;
+    font-size: 1.05rem;
+    color: var(--accent);
+}
+
+.lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+}
+
+.feature-list,
+.device-list {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.feature-list li,
+.device-list li {
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: var(--surface-strong);
+    border: 1px solid var(--line);
+}
+
+.feature-list strong,
+.device-list strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--accent-dark);
+}
+
+.side-panel {
+    display: grid;
+    gap: 24px;
+}
+
+.stat {
+    padding: 20px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #fff8ee 0%, #f2e4cf 100%);
+    border: 1px solid rgba(156, 115, 70, 0.18);
+}
+
+.stat strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.7rem;
+    color: var(--accent-dark);
+}
+
+.image-wrap {
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.image-wrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .buttons {
-    display:flex;
-    gap:10px;
-    margin-top:25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
 }
 
 button {
-    padding:12px 15px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 0.98rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
-.back { background:#fbbf24; }
-.home { background:#22c55e; }
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(61, 39, 20, 0.16);
+}
+
+.back {
+    background: linear-gradient(135deg, #d98b34, #b55f17);
+    color: white;
+}
+
+.home {
+    background: linear-gradient(135deg, #4d7f4c, #2d5e31);
+    color: white;
+}
+
+@media (max-width: 860px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 36px;
+    }
+
+    .hero-box,
+    .card {
+        padding: 24px;
+    }
+}
 </style>
 </head>
-
 <body>
 
-<header>
-<h1>Стоманени конструкции</h1>
+<header class="hero">
+    <div class="hero-box">
+        <span class="eyebrow">Индустриално оборудване</span>
+        <h1>Стоманени конструкции</h1>
+        <p>Здрави и функционални решения за изграждане на промишлени сгради, халета, платформи, носещи рамки и технологични съоръжения.</p>
+    </div>
 </header>
 
-<div class="container">
+<main class="container">
+    <div class="grid">
+        <section class="card">
+            <h2>1. Предназначение и приложение на стоманените конструкции</h2>
+            <p class="lead">
+                Стоманените конструкции са предназначени за изграждане на устойчиви и дълготрайни носещи системи в индустриални, търговски, складови и инфраструктурни обекти.
+            </p>
+            <p>
+                Те се използват за производство и монтаж на халета, навеси, платформи, етажни конструкции, стълби, парапети, обслужващи площадки и рамки за технологично оборудване. Благодарение на високата си якост и сравнително ниско тегло стоманата позволява изграждане на големи отвори и сложни инженерни решения.
+            </p>
+            <p>
+                Конструкциите се проектират, изработват и монтират според конкретното натоварване, предназначение и условия на експлоатация. След монтажа те могат да бъдат комбинирани с облицовки, покривни системи, машини и други строителни или технологични елементи.
+            </p>
 
-<p>🏗️</p>
+            <h3>Основни предимства</h3>
+            <ul class="feature-list">
+                <li>
+                    <strong>Непрекъснат транспорт</strong>
+                    Осигуряват висока носимоспособност и надеждност при различни видове натоварване.
+                </li>
+                <li>
+                    <strong>Бърз монтаж</strong>
+                    Изработват се предварително и се сглобяват на обекта в кратки срокове.
+                </li>
+                <li>
+                    <strong>Гъвкавост в проектирането</strong>
+                    Позволяват адаптиране към различни размери, функции и архитектурни изисквания.
+                </li>
+            </ul>
+        </section>
 
-<img src="https://github.com/darknight-rp/montage/blob/main/stomana1.jpg?raw=true">
-    <img src="https://github.com/darknight-rp/montage/blob/main/stomana2.jpg?raw=true">
-<img src="https://github.com/darknight-rp/montage/blob/main/stomana3.jpg?raw=true">
+        <aside class="side-panel">
+            <div class="image-wrap">
+                <img src="https://github.com/darknight-rp/montage/blob/main/konstrukcii1.jpg?raw=true" alt="Стоманени конструкции">
+            </div>
 
+            <div class="stat">
+                <strong>Висока якост</strong>
+                Подходящи са за носещи системи с големи отвори и сериозни експлоатационни натоварвания.
+            </div>
 
-<div class="buttons">
+            <div class="stat">
+                <strong>Широко приложение</strong>
+                Използват се в заводи, складове, логистични бази, селскостопански и обществени обекти.
+            </div>
+        </aside>
+    </div>
 
-<!-- ВАЖНО: винаги работи -->
-<button class="back" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }">⬅ Назад</button>
+    <section class="card" style="margin-top: 24px;">
+        <h2>2. Устройство</h2>
+        <ul class="device-list">
+            <li>
+                <strong>2.1. Основна носеща рамка</strong>
+                Състои се от колони, главни и второстепенни греди, които поемат основните натоварвания и осигуряват устойчивостта на конструкцията.
+            </li>
+            <li>
+                <strong>2.2. Връзки и съединения</strong>
+                Изпълняват се чрез болтови или заварени съединения и осигуряват здраво и сигурно свързване между отделните елементи.
+            </li>
+            <li>
+                <strong>2.3. Укрепващи елементи</strong>
+                Включват връзки, диагонали и ребра за коравина, които повишават стабилността и устойчивостта при вятър, сняг и динамични натоварвания.
+            </li>
+            <li>
+                <strong>2.4. Площадки, стълби и обслужващи елементи</strong>
+                Осигуряват безопасен достъп за монтаж, поддръжка и експлоатация на съоръженията и работните зони.
+            </li>
+            <li>
+                <strong>2.5. Антикорозионна защита</strong>
+                Изпълнява се чрез боядисване, грундиране или поцинковане за удължаване на експлоатационния живот на конструкцията.
+            </li>
+            <li>
+                <strong>2.6. Обшивки и допълнителни системи</strong>
+                При необходимост конструкцията се допълва с покривни и стенни панели, улуци, врати, прозорци и монтажни рамки за оборудване.
+            </li>
+        </ul>
 
-<button class="home" onclick="window.location.href='index.html'">🏠 Начало</button>
-
-</div>
-
-</div>
+        <div class="buttons">
+            <button class="back" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }">Назад</button>
+            <button class="home" onclick="window.location.href='index.html'">Начало</button>
+        </div>
+    </section>
+</main>
 
 </body>
 </html>
