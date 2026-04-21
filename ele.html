@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Елеватор</title>
+
+<style>
+:root {
+    --bg: #f4efe6;
+    --surface: rgba(255, 250, 242, 0.92);
+    --surface-strong: #fffdf8;
+    --text: #2b241c;
+    --muted: #6f6256;
+    --accent: #c56a1b;
+    --accent-dark: #8f4710;
+    --line: rgba(123, 92, 62, 0.16);
+    --shadow: 0 18px 45px rgba(74, 48, 22, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(230, 178, 102, 0.35), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(155, 101, 42, 0.18), transparent 28%),
+        linear-gradient(135deg, #ede4d5 0%, #f7f3eb 48%, #e9dcc9 100%);
+    line-height: 1.7;
+}
+
+.hero {
+    padding: 72px 20px 48px;
+    text-align: center;
+}
+
+.hero-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 38px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 28px;
+    background: linear-gradient(145deg, rgba(88, 57, 27, 0.88), rgba(46, 31, 18, 0.94));
+    box-shadow: var(--shadow);
+    color: #fffaf4;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffd8ae;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 18px 0 12px;
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    line-height: 1.1;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: rgba(255, 247, 238, 0.84);
+    font-size: 1.05rem;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 56px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.card {
+    padding: 28px;
+    border-radius: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.5rem;
+    color: var(--accent-dark);
+}
+
+.card h3 {
+    margin: 24px 0 10px;
+    font-size: 1.05rem;
+    color: var(--accent);
+}
+
+.lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+}
+
+.feature-list,
+.device-list {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.feature-list li,
+.device-list li {
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: var(--surface-strong);
+    border: 1px solid var(--line);
+}
+
+.feature-list strong,
+.device-list strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--accent-dark);
+}
+
+.side-panel {
+    display: grid;
+    gap: 24px;
+}
+
+.stat {
+    padding: 20px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #fff8ee 0%, #f2e4cf 100%);
+    border: 1px solid rgba(156, 115, 70, 0.18);
+}
+
+.stat strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.7rem;
+    color: var(--accent-dark);
+}
+
+.image-wrap {
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.image-wrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+button {
+    padding: 13px 18px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 0.98rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(61, 39, 20, 0.16);
+}
+
+.back {
+    background: linear-gradient(135deg, #d98b34, #b55f17);
+    color: white;
+}
+
+.home {
+    background: linear-gradient(135deg, #4d7f4c, #2d5e31);
+    color: white;
+}
+
+@media (max-width: 860px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 36px;
+    }
+
+    .hero-box,
+    .card {
+        padding: 24px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="hero-box">
+        <span class="eyebrow">Индустриално оборудване</span>
+        <h1>Елеватор</h1>
+        <p>Индустриално съоръжение за вертикално еднопосочно вдигане на зърно и меки продукти в технологични и складови системи.</p>
+    </div>
+</header>
+
+<main class="container">
+    <div class="grid">
+        <section class="card">
+            <h2>1. Предназначение и принцип на работа на елеватора</h2>
+            <p class="lead">
+                Елеваторът е предназначен за вертикално еднопосочно вдигане на зърно или меки продукти в различни производствени и складови линии.
+            </p>
+            <p>
+                Материалът за транспортиране постъпва през приемното устройство в крака, където се загребва от кофичките и се пренася вертикално. Захранването на елеватора може да става срещу кофичките или откъм гърба им, според вида на материала.
+            </p>
+            <p>
+                Разтоварването на продукта става в главата на елеватора и продължава пътя си в технологичната линия. За предотвратяване връщането на продукта е поставен език.
+            </p>
+
+            <h3>Основни предимства</h3>
+            <ul class="feature-list">
+                <li>
+                    <strong>Непрекъснат транспорт</strong>
+                    Подходящ е за постоянен транспорт на продуктите по височина без прекъсване на работния процес.
+                </li>
+                <li>
+                    <strong>Вертикално транспортиране</strong>
+                    Осигурява ефективно повдигане на зърно и меки продукти в ограничено пространство.
+                </li>
+                <li>
+                    <strong>Интеграция в линия</strong>
+                    Разтоварването в главата позволява лесно включване към следващ етап от технологичния процес.
+                </li>
+            </ul>
+        </section>
+
+        <aside class="side-panel">
+            <div class="image-wrap">
+                <img src="https://github.com/darknight-rp/montage/blob/main/elevator1.jpg?raw=true" alt="Индустриален елеватор">
+            </div>
+
+            <div class="stat">
+                <strong>Вертикален транспорт</strong>
+                Създаден за надеждно еднопосочно вдигане на материалите по височина.
+            </div>
+
+            <div class="stat">
+                <strong>Кофичкова система</strong>
+                Кофичките загребват продукта в крака и го разтоварват в главата на елеватора.
+            </div>
+        </aside>
+    </div>
+
+    <section class="card" style="margin-top: 24px;">
+        <h2>2. Устройство</h2>
+        <ul class="device-list">
+            <li>
+                <strong>2.1. Пета на елеватора</strong>
+                Метална конструкция с входящ улей, на която се подава материалът за транспортиране. В корпуса на крака, на съчмени лагери, лагерува оста на водимата елеваторна шайба. За почистване при евентуално задръстване на крака е монтиран капак.
+            </li>
+            <li>
+                <strong>2.2. Глава на елеватора</strong>
+                Състои се от два кожуха, ляв и десен, и основа, които са метални конструкции. В главата е монтирана задвижващата шайба. Валът на шайбата лагерува върху самонагаждащи се съчмени лагери с конусни натегателни втулки, а лагерните корпуси са поставени на конзоли, заварени към основата. Изсипването на транспортирания продукт става през изхода в главата на елеватора.
+            </li>
+            <li>
+                <strong>2.3. Тръба с капак</strong>
+                Използва се в два броя и чрез нея се извършва лесен монтаж на кофичките, както и корекция на дължината на елеваторната лента при разтегляне.
+            </li>
+            <li>
+                <strong>2.4. Тръби на елеватора</strong>
+                Чрез тях се свързват петата и главата, като помежду си тръбите се свързват чрез скоби.
+            </li>
+            <li>
+                <strong>2.5. Задвижване</strong>
+                Според височината и вида на транспортирания продукт е осъществено необходимото електро-задвижване.
+            </li>
+        </ul>
+
+        <div class="buttons">
+            <button class="back" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }">Назад</button>
+            <button class="home" onclick="window.location.href='index.html'">Начало</button>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
