@@ -246,6 +246,14 @@
       font-weight: 700;
       letter-spacing: 0.02em;
       box-shadow: 0 16px 32px rgba(181, 82, 47, 0.24);
+      border: 0;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      opacity: 0.96;
     }
 
     .map-wrap {
@@ -289,6 +297,20 @@
       box-shadow: 0 16px 32px rgba(34, 75, 69, 0.2);
     }
 
+    .button.light {
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--text);
+      box-shadow: 0 12px 26px rgba(63, 37, 18, 0.1);
+      border: 1px solid rgba(88, 58, 34, 0.12);
+    }
+
+    .back-actions {
+      margin: 0 56px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
     .map-frame iframe {
       width: 100%;
       height: 100%;
@@ -322,6 +344,11 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .back-actions {
+        margin-left: 24px;
+        margin-right: 24px;
+      }
     }
 
     @media (max-width: 560px) {
@@ -346,7 +373,7 @@
         <span class="eyebrow">Контактен Център</span>
         <h1>Посети ни или се свържи с офиса</h1>
         <p>
-         Може да видиш информацията по-долу
+         Може да видиш информация по-долу!
         </p>
       </div>
 
@@ -385,7 +412,7 @@
         <p class="label">Google Maps</p>
         <h2 class="value">Това са кординатите на обекта</h2>
         <p class="meta">
-       Може да видиш информацията по-долу!
+                  Може да видиш информация по-долу!
         </p>
         <div class="map-actions">
           <a class="button" href="https://www.google.com/maps?q=42.46934590707098,26.490341657089918" target="_blank" rel="noopener noreferrer">Отвори в Maps</a>
@@ -401,6 +428,11 @@
           title="Карта на офиса">
         </iframe>
       </div>
+    </section>
+
+    <section class="back-actions">
+      <button class="button light" type="button" onclick="history.back()">Назад</button>
+      <a class="button secondary" href="javascript:history.back()">Върни се откъдето дойде</a>
     </section>
 
     <section class="cta">
