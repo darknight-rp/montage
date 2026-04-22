@@ -173,15 +173,19 @@
     }
 
     .lang-flag {
-      font-size: 16px;
-      line-height: 1;
+      width: 22px;
+      height: 16px;
+      border-radius: 4px;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
+      flex-shrink: 0;
     }
 
     .lang-menu {
       position: absolute;
       top: calc(100% + 10px);
       right: 0;
-      min-width: 152px;
+      min-width: 172px;
       padding: 8px;
       border-radius: 18px;
       background: rgba(3, 10, 24, 0.96);
@@ -742,16 +746,21 @@
     <a href="#contact">Контакти</a>
     <div class="lang-switcher" id="langSwitcher">
       <button class="lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu">
-        <span class="lang-flag">🇧🇬</span>
-        <span>BG</span>
+        <img
+          class="lang-flag"
+          id="currentLangFlag"
+          src="https://flagcdn.com/w40/bg.png"
+          alt="Флаг на България"
+        >
+        <span id="currentLangLabel">BG</span>
       </button>
       <div class="lang-menu" id="langMenu">
-        <a class="lang-option active" href="index.html">
-          <span class="lang-flag">🇧🇬</span>
+        <a class="lang-option active" href="index.html" data-lang="BG" data-flag="https://flagcdn.com/w40/bg.png" data-alt="Флаг на България">
+          <img class="lang-flag" src="https://flagcdn.com/w40/bg.png" alt="Флаг на България">
           <span>Български</span>
         </a>
-        <a class="lang-option" href="en.html">
-          <span class="lang-flag">🇬🇧</span>
+        <a class="lang-option" href="en.html" data-lang="EN" data-flag="https://flagcdn.com/w40/gb.png" data-alt="Флаг на Великобритания">
+          <img class="lang-flag" src="https://flagcdn.com/w40/gb.png" alt="Флаг на Великобритания">
           <span>English</span>
         </a>
       </div>
@@ -956,6 +965,9 @@
     const topBtn = document.getElementById("topBtn");
     const langSwitcher = document.getElementById("langSwitcher");
     const langToggle = langSwitcher.querySelector(".lang-toggle");
+    const currentLangFlag = document.getElementById("currentLangFlag");
+    const currentLangLabel = document.getElementById("currentLangLabel");
+    const langOptions = document.querySelectorAll(".lang-option");
     let zoomLevel = 1;
     const zoomStep = 0.2;
     const maxZoom = 3;
@@ -1006,6 +1018,25 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
+
+    function syncCurrentLanguage() {
+      const activeOption = document.querySelector(".lang-option.active") || langOptions[0];
+      currentLangFlag.src = activeOption.dataset.flag;
+      currentLangFlag.alt = activeOption.dataset.alt;
+      currentLangLabel.textContent = activeOption.dataset.lang;
+    }
+
+    langOptions.forEach(function (option) {
+      option.addEventListener("click", function () {
+        langOptions.forEach(function (item) {
+          item.classList.remove("active");
+        });
+        option.classList.add("active");
+        syncCurrentLanguage();
+      });
+    });
+
+    syncCurrentLanguage();
 
     langToggle.addEventListener("click", function (event) {
       event.stopPropagation();
