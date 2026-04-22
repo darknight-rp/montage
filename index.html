@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Монтаж Каубоя ООД</title>
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Oswald:wght@500;600;700&display=swap');
 
@@ -100,24 +99,10 @@
       background: rgba(255, 255, 255, 0.14);
     }
 
-    .top-strip a {
-      color: #ffffff;
-      text-decoration: none;
-      transition: opacity 0.2s ease;
-    }
-
-    .top-strip a:hover {
-      opacity: 0.75;
-    }
-
-    .top-icon {
-      font-size: 16px;
-      line-height: 1;
-    }
-
     .menu {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 14px;
       padding: 16px 24px;
       background: rgba(2, 6, 23, 0.78);
@@ -130,7 +115,8 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     }
 
-    .menu a {
+    .menu a,
+    .lang-toggle {
       color: #f8fafc;
       text-decoration: none;
       font-weight: 700;
@@ -144,6 +130,7 @@
       transform: translateY(25px);
       animation: slideUp 0.6s ease forwards;
       transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+      background: transparent;
     }
 
     .menu a:nth-child(1) { animation-delay: 0.1s; }
@@ -155,7 +142,7 @@
     .menu a:nth-child(7) { animation-delay: 0.7s; }
     .menu a:nth-child(8) { animation-delay: 0.8s; }
     .menu a:nth-child(9) { animation-delay: 0.9s; }
-    .menu a:nth-child(10) { animation-delay: 1s; }
+    .menu .lang-switcher { animation: slideUp 0.6s ease forwards; animation-delay: 1s; opacity: 0; transform: translateY(25px); }
 
     @keyframes slideUp {
       to {
@@ -164,11 +151,69 @@
       }
     }
 
-    .menu a:hover {
+    .menu a:hover,
+    .lang-toggle:hover,
+    .lang-switcher.open .lang-toggle {
       color: var(--gold);
       background: rgba(255, 255, 255, 0.05);
       border-color: rgba(251, 191, 36, 0.32);
       transform: translateY(-2px);
+    }
+
+    .lang-switcher {
+      position: relative;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .lang-flag {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .lang-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 152px;
+      padding: 8px;
+      border-radius: 18px;
+      background: rgba(3, 10, 24, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .lang-switcher.open .lang-menu {
+      display: flex;
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .lang-option:hover,
+    .lang-option.active {
+      background: rgba(251, 191, 36, 0.12);
+      color: var(--gold);
     }
 
     header {
@@ -214,29 +259,6 @@
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 15px;
-      background: #020617;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #fbbf24;
     }
 
     .hero {
@@ -341,6 +363,7 @@
     .services .card:nth-child(6) { animation-delay: 0.6s; }
     .services .card:nth-child(7) { animation-delay: 0.7s; }
     .services .card:nth-child(8) { animation-delay: 0.8s; }
+    .services .card:nth-child(9) { animation-delay: 0.9s; }
 
     @keyframes cardUp {
       to {
@@ -647,13 +670,19 @@
         padding: 20px;
       }
 
-      .menu, nav {
+      .menu {
         gap: 10px;
       }
 
-      .menu a {
+      .menu a,
+      .lang-toggle {
         font-size: 12px;
         padding: 9px 12px;
+      }
+
+      .lang-menu {
+        right: auto;
+        left: 0;
       }
 
       .container {
@@ -684,7 +713,6 @@
   </style>
 </head>
 <body>
-
   <div class="top-strip">
     <div class="top-strip-left">
       <span>Монтаж Каубоя ООД</span>
@@ -692,6 +720,7 @@
     <div class="top-strip-right">
       <span><span class="top-icon">📞</span> 088 922 1597 / 088 922 1589</span>
       <span class="top-strip-divider"></span>
+      <span>Ямбол, България</span>
     </div>
   </div>
 
@@ -704,16 +733,29 @@
   <nav class="menu">
     <a href="#">Начало</a>
     <a href="#services">Услуги</a>
-    <a href="#certificates">Референция</a>
-    <a href="#dddd">Лицензи</a>
+    <a href="#certificates">Референции</a>
+    <a href="#licenses">Лицензи</a>
     <a href="#inquiry">Запитване</a>
     <a href="#careers">Кандидатура</a>
     <a href="maps.html">Карта</a>
     <a href="partner.html">Партньори</a>
-    <a href="#contact">Контакти&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-&nbsp; &nbsp;&nbsp; </a><br>
-
-    <a href="en.html">English</a>
+    <a href="#contact">Контакти</a>
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu">
+        <span class="lang-flag">🇧🇬</span>
+        <span>BG</span>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <a class="lang-option active" href="index.html">
+          <span class="lang-flag">🇧🇬</span>
+          <span>Български</span>
+        </a>
+        <a class="lang-option" href="en.html">
+          <span class="lang-flag">🇬🇧</span>
+          <span>English</span>
+        </a>
+      </div>
+    </div>
   </nav>
 
   <section class="hero">
@@ -732,7 +774,7 @@
       </div>
       <div class="card" onclick="location.href='trans.html'">
         <h3>Транспортни ленти</h3>
-        <p>Монтаж на Tранспортни ленти</p>
+        <p>Монтаж на транспортни ленти</p>
       </div>
       <div class="card" onclick="location.href='stomana.html'">
         <h3>Стоманени конструкции</h3>
@@ -746,22 +788,20 @@
         <h3>Зърнени инсталации</h3>
         <p>Съхранение и обработка на зърно</p>
       </div>
-       <div class="card" onclick="location.href='red.html'">
-       <h3>Редлери</h3>
-       <p>Монтаж на Редлери</p>
+      <div class="card" onclick="location.href='red.html'">
+        <h3>Редлери</h3>
+        <p>Монтаж на редлери</p>
       </div>
-       <div class="card" onclick="location.href='ele.html'">
-       <h3>Eлеватори</h3>
-       <p>Монтаж на Eлеватори</p>
+      <div class="card" onclick="location.href='ele.html'">
+        <h3>Елеватори</h3>
+        <p>Монтаж на елеватори</p>
       </div>
-       <div class="card" onclick="location.href='she.html'">
-       <h3>Шнекове</h3>
-       <p>Монтаж на Шнекове</p>
+      <div class="card" onclick="location.href='she.html'">
+        <h3>Шнекове</h3>
+        <p>Монтаж на шнекове</p>
       </div>
     </div>
   </div>
-
-  <div class="container" id="projects"></div>
 
   <div class="container" id="certificates">
     <h2>Референции</h2>
@@ -806,19 +846,19 @@
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция7.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 8">
         <p>Описание.</p>
       </div>
-         <div class="card">
+      <div class="card">
         <h3>Референция 9</h3>
-        <img src="https://github.com/darknight-rp/montage/blob/main/%D0%A0%D0%B5%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F%20%D0%9A%D0%97%D0%A3-%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81%20%D0%95%D0%9E%D0%9E%D0%94_page-0001.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 8">
+        <img src="https://github.com/darknight-rp/montage/blob/main/%D0%A0%D0%B5%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F%20%D0%9A%D0%97%D0%A3-%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81%20%D0%95%D0%9E%D0%9E%D0%94_page-0001.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 9">
         <p>Описание.</p>
       </div>
     </div>
   </div>
 
-  <div class="container" id="dddd">
+  <div class="container" id="licenses">
     <h2>Лицензи</h2>
     <div class="services">
       <div class="card">
-        <h3>Лиценз</h3>
+        <h3>Лиценз 1</h3>
         <img src="https://raw.githubusercontent.com/darknight-rp/montage/refs/heads/main/rotated_up.png" onclick="openImg(this.src)" alt="Лиценз 1">
         <p>Удостоверение Камара на строителите 2026</p>
       </div>
@@ -830,7 +870,7 @@
       <div class="card">
         <h3>Лиценз 3</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%BA%D1%80%D0%B0%D0%BD%D0%BE%D0%B2%D0%B5_page-0001.jpg?raw=true" onclick="openImg(this.src)" alt="Лиценз 3">
-        <p>Лиценз ремонт кранове 2026</p>
+        <p>Лиценз ремонт на кранове 2026</p>
       </div>
     </div>
   </div>
@@ -839,19 +879,19 @@
     <h2>Запитване</h2>
     <div class="inquiry-intro">
       <h3>Пишете ни</h3>
-      <p>Ако желаете да се свържете с нас, освен по телефон, факс и имейл, можете да ни изпратите съобщение и през формата за Запитване Ще ви отговорим при първа възможност.</p>
+      <p>Ако желаете да се свържете с нас, освен по телефон и имейл, можете да ни изпратите съобщение и през формата за запитване. Ще ви отговорим при първа възможност.</p>
     </div>
     <form id="contactForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-      <input name="email" placeholder="Имейл адрес" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="email">
-      <input name="name" placeholder="Име" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <select name="type" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+      <input name="email" placeholder="Имейл адрес" required type="email">
+      <input name="name" placeholder="Име" type="text">
+      <select name="type">
         <option selected>Общи въпроси</option>
         <option>Оферта</option>
         <option>Проект</option>
       </select>
-      <input name="title" placeholder="Заглавие" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <textarea name="message" placeholder="Вашето съобщение" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
-      <button style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">
+      <input name="title" placeholder="Заглавие" required type="text">
+      <textarea name="message" placeholder="Вашето съобщение" required style="height:120px;"></textarea>
+      <button style="background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">
         Изпрати съобщение
       </button>
     </form>
@@ -860,13 +900,13 @@
   <div class="container" id="careers">
     <h2>Кандидатура</h2>
     <form id="careerForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-      <input name="name" placeholder="Име и фамилия" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <input name="email" placeholder="Имейл" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="email">
-      <input name="phone" placeholder="Телефон" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <input name="position" placeholder="Позиция" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <textarea name="message" placeholder="Представяне / опит" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
+      <input name="name" placeholder="Име и фамилия" required type="text">
+      <input name="email" placeholder="Имейл" required type="email">
+      <input name="phone" placeholder="Телефон" required type="text">
+      <input name="position" placeholder="Позиция" type="text">
+      <textarea name="message" placeholder="Представяне / опит" required style="height:120px;"></textarea>
       <input name="cv" accept=".pdf,.doc,.docx" style="color:white;" type="file">
-      <button style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#fbbf24,#f59e0b);color:black;font-size:16px;cursor:pointer;">
+      <button style="background:linear-gradient(to right,#fbbf24,#f59e0b);color:black;font-size:16px;cursor:pointer;">
         Изпрати кандидатура
       </button>
     </form>
@@ -874,16 +914,16 @@
 
   <div class="container" id="contact">
     <h2>Контакти</h2>
-    <p>Управители: Анна Тодорова-0889221597</p>
-    <p>Христо Христов-0889221589</p>
+    <p>Управители: Анна Тодорова - 0889221597</p>
+    <p>Христо Христов - 0889221589</p>
     <p>Офис: 8602 Ямбол, България</p>
     <p>Email: montazh.kauboya@gmail.com</p>
-    <p>montage_cowboy@abv.bg</p>
-    <p>База: град Ямбол кв. „Тракия“ №100</p>
+    <p>Email: montage_cowboy@abv.bg</p>
+    <p>База: град Ямбол, кв. „Тракия“ №100</p>
   </div>
 
   <div class="container">
-    <h2>ДОПЪЛНИТЕЛНА ИНФОРМАЦИЯ</h2>
+    <h2>Допълнителна информация</h2>
     <p>Нашата бизнес етика:</p>
     <p>Професионализъм</p>
     <p>Високо качество</p>
@@ -906,7 +946,6 @@
       <button class="close-btn" onclick="closeImg(event)">×</button>
       <button class="zoom-btn zoom-in" onclick="zoomIn(event)">+</button>
       <button class="zoom-btn zoom-out" onclick="zoomOut(event)">−</button>
-
       <div class="lightbox-img-wrap">
         <img id="lightbox-img" src="" alt="Увеличена снимка" onclick="event.stopPropagation()">
       </div>
@@ -914,7 +953,9 @@
   </div>
 
   <script>
-    let topBtn = document.getElementById("topBtn");
+    const topBtn = document.getElementById("topBtn");
+    const langSwitcher = document.getElementById("langSwitcher");
+    const langToggle = langSwitcher.querySelector(".lang-toggle");
     let zoomLevel = 1;
     const zoomStep = 0.2;
     const maxZoom = 3;
@@ -966,7 +1007,20 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    document.addEventListener("keydown", function(e) {
+    langToggle.addEventListener("click", function (event) {
+      event.stopPropagation();
+      const isOpen = langSwitcher.classList.toggle("open");
+      langToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!langSwitcher.contains(event.target)) {
+        langSwitcher.classList.remove("open");
+        langToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
       const lightbox = document.getElementById("lightbox");
       if (lightbox.style.display === "flex") {
         if (e.key === "Escape") {
@@ -985,38 +1039,36 @@
           }
         }
       }
+
+      if (e.key === "Escape") {
+        langSwitcher.classList.remove("open");
+        langToggle.setAttribute("aria-expanded", "false");
+      }
     });
 
     document.getElementById("contactForm").addEventListener("submit", async function (e) {
       e.preventDefault();
-
       const formData = new FormData(this);
-
       await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
         method: "POST",
         headers: { "Accept": "application/json" },
         body: formData
       });
-
       alert("Съобщението е изпратено успешно!");
       this.reset();
     });
 
     document.getElementById("careerForm").addEventListener("submit", async function (e) {
       e.preventDefault();
-
       const formData = new FormData(this);
-
       await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
         method: "POST",
         headers: { "Accept": "application/json" },
         body: formData
       });
-
       alert("Кандидатурата е изпратена успешно!");
       this.reset();
     });
   </script>
-
 </body>
 </html>
