@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Montage Kauboya Ltd.</title>
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Oswald:wght@500;600;700&display=swap');
 
@@ -69,9 +68,41 @@
       background: #fbbf24;
     }
 
+    .top-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 24px;
+      background: #4a4d53;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .top-strip-left,
+    .top-strip-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .top-strip-right {
+      justify-content: flex-end;
+    }
+
+    .top-strip-divider {
+      width: 1px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
     .menu {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 14px;
       padding: 16px 24px;
       background: rgba(2, 6, 23, 0.78);
@@ -84,7 +115,8 @@
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     }
 
-    .menu a {
+    .menu a,
+    .lang-toggle {
       color: #f8fafc;
       text-decoration: none;
       font-weight: 700;
@@ -98,6 +130,7 @@
       transform: translateY(25px);
       animation: slideUp 0.6s ease forwards;
       transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+      background: transparent;
     }
 
     .menu a:nth-child(1) { animation-delay: 0.1s; }
@@ -109,7 +142,7 @@
     .menu a:nth-child(7) { animation-delay: 0.7s; }
     .menu a:nth-child(8) { animation-delay: 0.8s; }
     .menu a:nth-child(9) { animation-delay: 0.9s; }
-    .menu a:nth-child(10) { animation-delay: 1s; }
+    .menu .lang-switcher { animation: slideUp 0.6s ease forwards; animation-delay: 1s; opacity: 0; transform: translateY(25px); }
 
     @keyframes slideUp {
       to {
@@ -118,11 +151,73 @@
       }
     }
 
-    .menu a:hover {
+    .menu a:hover,
+    .lang-toggle:hover,
+    .lang-switcher.open .lang-toggle {
       color: var(--gold);
       background: rgba(255, 255, 255, 0.05);
       border-color: rgba(251, 191, 36, 0.32);
       transform: translateY(-2px);
+    }
+
+    .lang-switcher {
+      position: relative;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .lang-flag {
+      width: 22px;
+      height: 16px;
+      border-radius: 4px;
+      object-fit: cover;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16);
+      flex-shrink: 0;
+    }
+
+    .lang-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      min-width: 172px;
+      padding: 8px;
+      border-radius: 18px;
+      background: rgba(3, 10, 24, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .lang-switcher.open .lang-menu {
+      display: flex;
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .lang-option:hover,
+    .lang-option.active {
+      background: rgba(251, 191, 36, 0.12);
+      color: var(--gold);
     }
 
     header {
@@ -168,29 +263,6 @@
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 15px;
-      background: #020617;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #fbbf24;
     }
 
     .hero {
@@ -295,6 +367,7 @@
     .services .card:nth-child(6) { animation-delay: 0.6s; }
     .services .card:nth-child(7) { animation-delay: 0.7s; }
     .services .card:nth-child(8) { animation-delay: 0.8s; }
+    .services .card:nth-child(9) { animation-delay: 0.9s; }
 
     @keyframes cardUp {
       to {
@@ -457,6 +530,31 @@
       box-shadow: var(--shadow);
     }
 
+    .inquiry-intro {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      padding: 24px 26px;
+      background: linear-gradient(180deg, rgba(10, 25, 47, 0.8), rgba(7, 18, 36, 0.92));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .inquiry-intro h3 {
+      margin: 0 0 12px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .inquiry-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
     input, textarea, select, button {
       font-family: inherit;
     }
@@ -545,6 +643,20 @@
     }
 
     @media (max-width: 768px) {
+      .top-strip {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .top-strip-right {
+        justify-content: flex-start;
+      }
+
+      .top-strip-divider {
+        display: none;
+      }
+
       header {
         padding: 56px 18px 42px;
       }
@@ -562,13 +674,19 @@
         padding: 20px;
       }
 
-      .menu, nav {
+      .menu {
         gap: 10px;
       }
 
-      .menu a {
+      .menu a,
+      .lang-toggle {
         font-size: 12px;
         padding: 9px 12px;
+      }
+
+      .lang-menu {
+        right: auto;
+        left: 0;
       }
 
       .container {
@@ -576,7 +694,8 @@
       }
 
       .card,
-      form {
+      form,
+      .inquiry-intro {
         padding: 22px;
       }
 
@@ -598,120 +717,164 @@
   </style>
 </head>
 <body>
+  <div class="top-strip">
+    <div class="top-strip-left">
+      <span>Montage Kauboya Ltd.</span>
+    </div>
+    <div class="top-strip-right">
+      <span><span class="top-icon">📞</span> 088 922 1597 / 088 922 1589</span>
+      <span class="top-strip-divider"></span>
+      <span>Yambol, Bulgaria</span>
+    </div>
+  </div>
 
   <header>
     <h1>MONTAGE KAUBOYA LTD.</h1>
-    <p>Professional Industrial Solutions</p>
-    <p>Our motto: "ON THE ROAD OF GRAIN"</p>
+    <p>Professional industrial solutions</p>
+    <p>Our motto: “ON THE PATH OF GRAIN”</p>
   </header>
 
   <nav class="menu">
     <a href="#">Home</a>
     <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
     <a href="#certificates">References</a>
-    <a href="#dddd">Licenses</a>
+    <a href="#licenses">Licenses</a>
     <a href="#inquiry">Inquiry</a>
-    <a href="#careers">Careers</a>
+    <a href="#careers">Application</a>
     <a href="maps.html">Map</a>
-    <a href="#contact">Contacts&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-&nbsp; &nbsp;&nbsp; </a><br>
-    <a href="index.html">Български</a>
+    <a href="partner.html">Partners</a>
+    <a href="#contact">Contacts</a>
+  <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-toggle" type="button" aria-expanded="false" aria-controls="langMenu">
+        <img
+          class="lang-flag"
+          id="currentLangFlag"
+          src="https://flagcdn.com/w40/bg.png"
+          alt="Флаг на България"
+        >
+        <span id="currentLangLabel">BG</span>
+      </button>
+      <div class="lang-menu" id="langMenu">
+        <a class="lang-option active" href="index.html" data-lang="BG" data-flag="https://flagcdn.com/w40/bg.png" data-alt="Флаг на България">
+          <img class="lang-flag" src="https://flagcdn.com/w40/bg.png" alt="Флаг на България">
+          <span>Български</span>
+        </a>
+        <a class="lang-option" href="en.html" data-lang="EN" data-flag="https://flagcdn.com/w40/gb.png" data-alt="Флаг на Великобритания">
+          <img class="lang-flag" src="https://flagcdn.com/w40/gb.png" alt="Флаг на Великобритания">
+          <span>English</span>
+        </a>
+      </div>
+    </div>
   </nav>
 
   <section class="hero">
-    <h2>High-Class Installation and Manufacturing</h2>
+    <h2>High-class installation and manufacturing</h2>
     <a href="#careers" style="margin-top:20px; display:inline-block; padding:12px 20px; background:#fbbf24; color:black; text-decoration:none; border-radius:10px; font-weight:bold;">
-      Apply Now
+      Apply now
     </a>
   </section>
 
   <div class="container" id="services">
     <h2>Our Services</h2>
     <div class="services">
-      <div class="card" onclick="location.href='silos2.html'">
+      <div class="card" onclick="location.href='silos.html'">
         <h3>Silos</h3>
         <p>Installation and systems</p>
       </div>
-      <div class="card" onclick="location.href='trans2.html'">
-        <h3>Transport Systems</h3>
-        <p>Drag conveyors, elevators, augers and conveyor belts</p>
+      <div class="card" onclick="location.href='trans.html'">
+        <h3>Conveyor Belts</h3>
+        <p>Conveyor belt installation</p>
       </div>
-      <div class="card" onclick="location.href='stomana2.html'">
+      <div class="card" onclick="location.href='stomana.html'">
         <h3>Steel Structures</h3>
-        <p>Manufacturing and installation of steel structures</p>
+        <p>Fabrication and installation of steel structures</p>
       </div>
-      <div class="card" onclick="location.href='pesh2.html'">
+      <div class="card" onclick="location.href='pesh.html'">
         <h3>Refineries and Furnaces</h3>
         <p>Installation of industrial equipment</p>
       </div>
-      <div class="card" onclick="location.href='ref2.html'">
+      <div class="card" onclick="location.href='ref.html'">
         <h3>Grain Installations</h3>
         <p>Grain storage and processing</p>
       </div>
+      <div class="card" onclick="location.href='red.html'">
+        <h3>Redlers</h3>
+        <p>Redler installation</p>
+      </div>
+      <div class="card" onclick="location.href='ele.html'">
+        <h3>Elevators</h3>
+        <p>Elevator installation</p>
+      </div>
+      <div class="card" onclick="location.href='she.html'">
+        <h3>Augers</h3>
+        <p>Auger installation</p>
+      </div>
     </div>
   </div>
 
-  <div class="container" id="projects"></div>
-
   <div class="container" id="certificates">
-     <h2>References</h2>
+    <h2>References</h2>
     <div class="services">
       <div class="card">
         <h3>Reference 1</h3>
-        <img src="https://github.com/darknight-rp/montage/blob/main/Референция.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 1">
-        <p>Описание.</p>
+        <img src="https://github.com/darknight-rp/montage/blob/main/Референция.jpg?raw=true" onclick="openImg(this.src)" alt="Reference 1">
+        <p>Description.</p>
       </div>
       <div class="card">
         <h3>Reference 2</h3>
-        <img src="https://github.com/darknight-rp/montage/blob/main/Референция1.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 2">
-        <p>Описание.</p>
+        <img src="https://github.com/darknight-rp/montage/blob/main/Референция1.jpg?raw=true" onclick="openImg(this.src)" alt="Reference 2">
+        <p>Description.</p>
       </div>
       <div class="card">
         <h3>Reference 3</h3>
-        <img src="https://github.com/darknight-rp/montage/blob/main/Референция2.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 3">
-        <p>Описание.</p>
+        <img src="https://github.com/darknight-rp/montage/blob/main/Референция2.jpg?raw=true" onclick="openImg(this.src)" alt="Reference 3">
+        <p>Description.</p>
       </div>
       <div class="card">
         <h3>Reference 4</h3>
-        <img src="https://github.com/darknight-rp/montage/blob/main/Референция3.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 4">
-        <p>Описание.</p>
+        <img src="https://github.com/darknight-rp/montage/blob/main/Референция3.jpg?raw=true" onclick="openImg(this.src)" alt="Reference 4">
+        <p>Description.</p>
       </div>
       <div class="card">
         <h3>Reference 5</h3>
-        <img src="https://github.com/darknight-rp/montage/blob/main/Референция4.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 5">
-        <p>Описание.</p>
+        <img src="https://github.com/darknight-rp/montage/blob/main/Референция4.jpg?raw=true" onclick="openImg(this.src)" alt="Reference 5">
+        <p>Description.</p>
       </div>
       <div class="card">
         <h3>Reference 6</h3>
-        <img src="https://github.com/darknight-rp/montage/blob/main/Референция5.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 6">
-        <p>Описание.</p>
+        <img src="https://github.com/darknight-rp/montage/blob/main/Референция5.jpg?raw=true" onclick="openImg(this.src)" alt="Reference 6">
+        <p>Description.</p>
       </div>
       <div class="card">
         <h3>Reference 7</h3>
-        <img src="https://github.com/darknight-rp/montage/blob/main/Референция6.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 7">
-        <p>Описание.</p>
+        <img src="https://github.com/darknight-rp/montage/blob/main/Референция6.jpg?raw=true" onclick="openImg(this.src)" alt="Reference 7">
+        <p>Description.</p>
       </div>
-         <div class="card">
+      <div class="card">
         <h3>Reference 8</h3>
-        <img src="https://github.com/darknight-rp/montage/blob/main/Референция7.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 8">
-        <p>Описание.</p>
+        <img src="https://github.com/darknight-rp/montage/blob/main/Референция7.jpg?raw=true" onclick="openImg(this.src)" alt="Reference 8">
+        <p>Description.</p>
+      </div>
+      <div class="card">
+        <h3>Reference 9</h3>
+        <img src="https://github.com/darknight-rp/montage/blob/main/%D0%A0%D0%B5%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F%20%D0%9A%D0%97%D0%A3-%D0%91%D1%83%D1%80%D0%B3%D0%B0%D1%81%20%D0%95%D0%9E%D0%9E%D0%94_page-0001.jpg?raw=true" onclick="openImg(this.src)" alt="Reference 9">
+        <p>Description.</p>
       </div>
     </div>
   </div>
-  
-  <div class="container" id="dddd">
+
+  <div class="container" id="licenses">
     <h2>Licenses</h2>
     <div class="services">
       <div class="card">
-        <h3>License</h3>
+        <h3>License 1</h3>
         <img src="https://raw.githubusercontent.com/darknight-rp/montage/refs/heads/main/rotated_up.png" onclick="openImg(this.src)" alt="License 1">
-        <p>Builders Chamber Certificate 2026</p>
+        <p>Builders Chamber certificate 2026</p>
       </div>
       <div class="card">
         <h3>License 2</h3>
         <img src="https://raw.githubusercontent.com/darknight-rp/montage/refs/heads/main/rotated2.png" onclick="openImg(this.src)" alt="License 2">
-        <p>Construction and монтаж certificate 2026</p>
+        <p>Construction and монтаж certificate from the Builders Chamber 2026</p>
       </div>
       <div class="card">
         <h3>License 3</h3>
@@ -723,18 +886,22 @@
 
   <div class="container" id="inquiry">
     <h2>Inquiry</h2>
+    <div class="inquiry-intro">
+      <h3>Write to Us</h3>
+      <p>If you would like to contact us, in addition to phone and email, you can also send us a message through the inquiry form. We will respond as soon as possible.</p>
+    </div>
     <form id="contactForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-      <input name="email" placeholder="Email address" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="email">
-      <input name="name" placeholder="Name" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <select name="type" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;">
+      <input name="email" placeholder="Email address" required type="email">
+      <input name="name" placeholder="Name" type="text">
+      <select name="type">
         <option selected>General questions</option>
         <option>Offer</option>
         <option>Project</option>
       </select>
-      <input name="title" placeholder="Title" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <textarea name="message" placeholder="Your message" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
-      <button style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">
-        Send Message
+      <input name="title" placeholder="Title" required type="text">
+      <textarea name="message" placeholder="Your message" required style="height:120px;"></textarea>
+      <button style="background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">
+        Send message
       </button>
     </form>
   </div>
@@ -742,26 +909,26 @@
   <div class="container" id="careers">
     <h2>Application</h2>
     <form id="careerForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-      <input name="name" placeholder="Full name" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <input name="email" placeholder="Email" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="email">
-      <input name="phone" placeholder="Phone" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <input name="position" placeholder="Position" style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;" type="text">
-      <textarea name="message" placeholder="Introduction / experience" required style="padding:15px;border-radius:10px;border:none;background:#0f172a;color:white;height:120px;"></textarea>
+      <input name="name" placeholder="Full name" required type="text">
+      <input name="email" placeholder="Email" required type="email">
+      <input name="phone" placeholder="Phone" required type="text">
+      <input name="position" placeholder="Position" type="text">
+      <textarea name="message" placeholder="Introduction / experience" required style="height:120px;"></textarea>
       <input name="cv" accept=".pdf,.doc,.docx" style="color:white;" type="file">
-      <button style="padding:15px;border:none;border-radius:10px;background:linear-gradient(to right,#fbbf24,#f59e0b);color:black;font-size:16px;cursor:pointer;">
-        Submit Application
+      <button style="background:linear-gradient(to right,#fbbf24,#f59e0b);color:black;font-size:16px;cursor:pointer;">
+        Send application
       </button>
     </form>
   </div>
 
   <div class="container" id="contact">
     <h2>Contacts</h2>
-    <p>Managers: Anna Todorova and Hristo Hristov</p>
-    <p>Phone: 0889221589</p>
+    <p>Managers: Anna Todorova - 0889221597</p>
+    <p>Hristo Hristov - 0889221589</p>
     <p>Office: 8602 Yambol, Bulgaria</p>
     <p>Email: montazh.kauboya@gmail.com</p>
-    <p>montage_cowboy@abv.bg<p/>
-    <p>Base: Trakia district No.100</p>
+    <p>Email: montage_cowboy@abv.bg</p>
+    <p>Base: Yambol, Trakia district, No. 100</p>
   </div>
 
   <div class="container">
@@ -788,7 +955,6 @@
       <button class="close-btn" onclick="closeImg(event)">×</button>
       <button class="zoom-btn zoom-in" onclick="zoomIn(event)">+</button>
       <button class="zoom-btn zoom-out" onclick="zoomOut(event)">−</button>
-
       <div class="lightbox-img-wrap">
         <img id="lightbox-img" src="" alt="Enlarged image" onclick="event.stopPropagation()">
       </div>
@@ -796,7 +962,12 @@
   </div>
 
   <script>
-    let topBtn = document.getElementById("topBtn");
+    const topBtn = document.getElementById("topBtn");
+    const langSwitcher = document.getElementById("langSwitcher");
+    const langToggle = langSwitcher.querySelector(".lang-toggle");
+    const currentLangFlag = document.getElementById("currentLangFlag");
+    const currentLangLabel = document.getElementById("currentLangLabel");
+    const langOptions = document.querySelectorAll(".lang-option");
     let zoomLevel = 1;
     const zoomStep = 0.2;
     const maxZoom = 3;
@@ -848,7 +1019,39 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    document.addEventListener("keydown", function(e) {
+    function syncCurrentLanguage() {
+      const activeOption = document.querySelector(".lang-option.active") || langOptions[0];
+      currentLangFlag.src = activeOption.dataset.flag;
+      currentLangFlag.alt = activeOption.dataset.alt;
+      currentLangLabel.textContent = activeOption.dataset.lang;
+    }
+
+    langOptions.forEach(function (option) {
+      option.addEventListener("click", function () {
+        langOptions.forEach(function (item) {
+          item.classList.remove("active");
+        });
+        option.classList.add("active");
+        syncCurrentLanguage();
+      });
+    });
+
+    syncCurrentLanguage();
+
+    langToggle.addEventListener("click", function (event) {
+      event.stopPropagation();
+      const isOpen = langSwitcher.classList.toggle("open");
+      langToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!langSwitcher.contains(event.target)) {
+        langSwitcher.classList.remove("open");
+        langToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
       const lightbox = document.getElementById("lightbox");
       if (lightbox.style.display === "flex") {
         if (e.key === "Escape") {
@@ -867,38 +1070,36 @@
           }
         }
       }
+
+      if (e.key === "Escape") {
+        langSwitcher.classList.remove("open");
+        langToggle.setAttribute("aria-expanded", "false");
+      }
     });
 
     document.getElementById("contactForm").addEventListener("submit", async function (e) {
       e.preventDefault();
-
       const formData = new FormData(this);
-
       await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
         method: "POST",
         headers: { "Accept": "application/json" },
         body: formData
       });
-
-      alert("Your message has been sent successfully!");
+      alert("The message has been sent successfully!");
       this.reset();
     });
 
     document.getElementById("careerForm").addEventListener("submit", async function (e) {
       e.preventDefault();
-
       const formData = new FormData(this);
-
       await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
         method: "POST",
         headers: { "Accept": "application/json" },
         body: formData
       });
-
-      alert("Your application has been sent successfully!");
+      alert("The application has been sent successfully!");
       this.reset();
     });
   </script>
-
 </body>
 </html>
