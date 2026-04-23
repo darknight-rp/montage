@@ -379,35 +379,53 @@
     .card {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(180deg, rgba(12, 24, 43, 0.88), rgba(5, 13, 26, 0.9));
-      padding: 28px;
-      border-radius: 26px;
-      border: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow);
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      background:
+        linear-gradient(145deg, rgba(15, 32, 56, 0.96), rgba(6, 14, 28, 0.96)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+      padding: 30px 26px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.3);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+      cursor: pointer;
+      isolation: isolate;
     }
 
     .card::before {
       content: "";
       position: absolute;
-      inset: 0 0 auto;
-      height: 4px;
-      background: linear-gradient(90deg, var(--gold), var(--cyan));
+      inset: 0;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.18), transparent 36%, transparent 65%, rgba(34, 211, 238, 0.15));
       opacity: 0.9;
+      z-index: -2;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+      opacity: 0.65;
     }
 
     .card:hover {
-      transform: translateY(-12px) scale(1.015);
-      border-color: rgba(251, 191, 36, 0.32);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      transform: translateY(-10px) rotateX(2deg);
+      border-color: rgba(251, 191, 36, 0.38);
+      background:
+        linear-gradient(145deg, rgba(18, 38, 66, 0.98), rgba(7, 18, 34, 0.98)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+      box-shadow: 0 26px 56px rgba(0, 0, 0, 0.42);
     }
 
     .card h3 {
       margin-top: 0;
       margin-bottom: 10px;
-      color: var(--gold);
+      color: #fff3cf;
       font-size: 24px;
+      line-height: 1.2;
     }
 
     .card p {
