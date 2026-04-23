@@ -603,14 +603,31 @@
       margin: 10px 0;
     }
 
-    .container > img,
-    body > img {
+    .container > img {
       display: block;
       width: min(1240px, calc(100% - 40px));
       margin: 0 auto 30px;
       border-radius: 30px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: var(--shadow);
+    }
+
+    .bottom-banner-wrap {
+      width: min(1240px, calc(100% - 40px));
+      margin: 16px auto 34px;
+      padding: 18px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      background: #ffffff;
+    }
+
+    .bottom-banner {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
     footer {
@@ -709,9 +726,10 @@
         font-size: 24px;
       }
 
-      body > img {
+      .bottom-banner-wrap {
         width: calc(100% - 24px);
         margin-bottom: 24px;
+        padding: 10px;
       }
     }
   </style>
@@ -942,7 +960,13 @@
     <p>Усъвършенстване</p>
   </div>
 
-  <img src="https://github.com/darknight-rp/montage/blob/main/4012fada-14eb-47f6-8042-68ffa25b7c9f.png?raw=true" style="width:100%; height:auto;" alt="Монтаж Каубоя">
+  <div class="bottom-banner-wrap">
+    <img
+      class="bottom-banner"
+      src="https://github.com/darknight-rp/montage/blob/main/4012fada-14eb-47f6-8042-68ffa25b7c9f.png?raw=true"
+      alt="Монтаж Каубоя"
+    >
+  </div>
 
   <footer>
     <p>© 2026 МОНТАЖ КАУБОЯ ООД</p>
