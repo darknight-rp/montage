@@ -157,16 +157,210 @@ h1 {
 }
 
 .image-wrap {
-    overflow: hidden;
-    border-radius: 24px;
-    box-shadow: var(--shadow);
+    min-height: 360px;
+    padding: 8px 0;
+    background: transparent;
+    border: none;
 }
 
-.image-wrap img {
-    display: block;
+.carousel-shell {
+    position: relative;
+    height: 360px;
+}
+
+.carousel-shadow {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    width: 70%;
+    height: 32px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(88, 57, 27, 0.22) 0%, rgba(88, 57, 27, 0.08) 48%, transparent 72%);
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+.carousel-stage {
+    position: relative;
     width: 100%;
     height: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 210px;
+    height: 280px;
+    border: none;
+    padding: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #1b130d;
+    transform: translateX(-50%) scale(0.96);
+    transform-origin: center bottom;
+    box-shadow:
+        0 22px 44px rgba(54, 31, 12, 0.22),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition: transform 0.45s ease, opacity 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+    opacity: 0;
+    filter: blur(1px);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
     object-fit: cover;
+}
+
+.carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.58) 100%);
+    pointer-events: none;
+}
+
+.carousel-caption {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 1;
+    color: #fff7ef;
+    text-align: left;
+}
+
+.carousel-caption strong {
+    display: block;
+    font-size: 1.08rem;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.carousel-caption span {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 241, 225, 0.8);
+}
+
+.carousel-shell:hover .carousel-item {
+    opacity: 1;
+    filter: blur(0);
+}
+
+.carousel-shell:not(:hover) .carousel-item {
+    pointer-events: none;
+}
+
+.carousel-shell:not(:hover) .carousel-item.active {
+    opacity: 1;
+    filter: blur(0);
+    pointer-events: auto;
+    z-index: 5;
+    transform: translateX(-50%) scale(1);
+}
+
+.carousel-shell:hover .carousel-item.active {
+    z-index: 5;
+    transform: translateX(-50%) scale(1.02);
+    box-shadow:
+        0 28px 56px rgba(54, 31, 12, 0.28),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+}
+
+.carousel-shell:hover .carousel-item.pos-1 {
+    z-index: 1;
+    transform: translateX(-140%) rotate(-22deg) scale(0.92);
+}
+
+.carousel-shell:hover .carousel-item.pos-2 {
+    z-index: 3;
+    transform: translateX(-94%) rotate(-12deg) scale(0.96);
+}
+
+.carousel-shell:hover .carousel-item.pos-3 {
+    z-index: 5;
+    transform: translateX(-50%) scale(1.02);
+}
+
+.carousel-shell:hover .carousel-item.pos-4 {
+    z-index: 3;
+    transform: translateX(-6%) rotate(12deg) scale(0.96);
+}
+
+.carousel-shell:hover .carousel-item.pos-5 {
+    z-index: 1;
+    transform: translateX(40%) rotate(22deg) scale(0.92);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(23, 16, 10, 0.72);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-box {
+    position: relative;
+    width: min(920px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    border-radius: 28px;
+    background: #fffaf4;
+    box-shadow: 0 30px 80px rgba(29, 18, 10, 0.35);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(32, 21, 12, 0.75);
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.modal-image {
+    width: 100%;
+    height: min(62vh, 520px);
+    object-fit: cover;
+    display: block;
+}
+
+.modal-content {
+    padding: 24px 26px 28px;
+}
+
+.modal-content h3 {
+    margin: 0 0 10px;
+    color: var(--accent-dark);
+    font-size: 1.55rem;
+}
+
+.modal-content p {
+    margin: 0;
+    color: var(--muted);
 }
 
 .buttons {
@@ -214,6 +408,31 @@ button:hover {
     .card {
         padding: 24px;
     }
+
+    .carousel-shell {
+        height: 320px;
+    }
+
+    .carousel-item {
+        width: 180px;
+        height: 245px;
+    }
+
+    .carousel-shell:hover .carousel-item.pos-1 {
+        transform: translateX(-126%) rotate(-18deg) scale(0.9);
+    }
+
+    .carousel-shell:hover .carousel-item.pos-2 {
+        transform: translateX(-86%) rotate(-10deg) scale(0.94);
+    }
+
+    .carousel-shell:hover .carousel-item.pos-4 {
+        transform: translateX(-14%) rotate(10deg) scale(0.94);
+    }
+
+    .carousel-shell:hover .carousel-item.pos-5 {
+        transform: translateX(26%) rotate(18deg) scale(0.9);
+    }
 }
 </style>
 </head>
@@ -260,7 +479,71 @@ button:hover {
 
         <aside class="side-panel">
             <div class="image-wrap">
-                <img src="https://github.com/darknight-rp/montage/blob/main/konstrukcii1.jpg?raw=true" alt="Стоманени конструкции">
+                <div class="carousel-shell" id="carousel">
+                    <div class="carousel-shadow"></div>
+
+                    <div class="carousel-stage">
+                        <button class="carousel-item pos-1" type="button"
+                            data-title="Хале"
+                            data-subtitle="Стоманена рамка"
+                            data-description="Конструкция за индустриални и складови пространства с висока надеждност и чист силует."
+                            data-image="file:///C:/Users/novab/Downloads/IMG_1278.png">
+                            <img src="file:///C:/Users/novab/Downloads/IMG_1278.png" alt="Хале">
+                            <div class="carousel-caption">
+                                <strong>Хале</strong>
+                                <span>Стоманена рамка</span>
+                            </div>
+                        </button>
+
+                        <button class="carousel-item pos-2" type="button"
+                            data-title="Площадка"
+                            data-subtitle="Обслужваща зона"
+                            data-description="Компактно решение за достъп, поддръжка и безопасно обслужване на технологични линии."
+                            data-image="https://github.com/darknight-rp/montage/blob/main/konstrukcii1.jpg?raw=true">
+                            <img src="https://github.com/darknight-rp/montage/blob/main/konstrukcii1.jpg?raw=true" alt="Площадка">
+                            <div class="carousel-caption">
+                                <strong>Площадка</strong>
+                                <span>Обслужваща зона</span>
+                            </div>
+                        </button>
+
+                        <button class="carousel-item pos-3 active" type="button"
+                            data-title="Конструкция"
+                            data-subtitle="Основен модул"
+                            data-description="Елегантно подредена носеща система с акцент върху устойчивост, детайл и завършена визия."
+                            data-image="file:///C:/Users/novab/Downloads/IMG_1278.png">
+                            <img src="file:///C:/Users/novab/Downloads/IMG_1278.png" alt="Конструкция">
+                            <div class="carousel-caption">
+                                <strong>Конструкция</strong>
+                                <span>Основен модул</span>
+                            </div>
+                        </button>
+
+                        <button class="carousel-item pos-4" type="button"
+                            data-title="Стълбище"
+                            data-subtitle="Достъп и монтаж"
+                            data-description="Функционално стоманено решение за преход между нива и удобна експлоатация."
+                            data-image="https://github.com/darknight-rp/montage/blob/main/konstrukcii1.jpg?raw=true">
+                            <img src="https://github.com/darknight-rp/montage/blob/main/konstrukcii1.jpg?raw=true" alt="Стълбище">
+                            <div class="carousel-caption">
+                                <strong>Стълбище</strong>
+                                <span>Достъп и монтаж</span>
+                            </div>
+                        </button>
+
+                        <button class="carousel-item pos-5" type="button"
+                            data-title="Покритие"
+                            data-subtitle="Защитна система"
+                            data-description="Финален слой за по-дълъг експлоатационен живот и визуално завършен облик."
+                            data-image="file:///C:/Users/novab/Downloads/IMG_1278.png">
+                            <img src="file:///C:/Users/novab/Downloads/IMG_1278.png" alt="Покритие">
+                            <div class="carousel-caption">
+                                <strong>Покритие</strong>
+                                <span>Защитна система</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="stat">
@@ -310,6 +593,99 @@ button:hover {
         </div>
     </section>
 </main>
+
+<div class="modal" id="imageModal">
+    <div class="modal-box">
+        <button class="modal-close" type="button" id="closeModal">&times;</button>
+        <img class="modal-image" id="modalImage" src="" alt="">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+const carousel = document.getElementById("carousel");
+const items = Array.from(document.querySelectorAll(".carousel-item"));
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const closeModal = document.getElementById("closeModal");
+
+const defaultIndex = 2;
+let activeIndex = defaultIndex;
+
+function updatePositions() {
+    const ordered = [];
+
+    for (let i = 0; i < items.length; i++) {
+        ordered.push(items[(activeIndex - 2 + i + items.length) % items.length]);
+    }
+
+    items.forEach((item) => {
+        item.classList.remove("pos-1", "pos-2", "pos-3", "pos-4", "pos-5", "active");
+    });
+
+    ordered.forEach((item, index) => {
+        item.classList.add("pos-" + (index + 1));
+        if (index === 2) {
+            item.classList.add("active");
+        }
+    });
+}
+
+function openModal(item) {
+    modalImage.src = item.dataset.image;
+    modalImage.alt = item.dataset.title;
+    modalTitle.textContent = item.dataset.title + " - " + item.dataset.subtitle;
+    modalDescription.textContent = item.dataset.description;
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closeModalFn() {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+items.forEach((item, index) => {
+    item.addEventListener("mouseenter", () => {
+        if (carousel.matches(":hover")) {
+            activeIndex = index;
+            updatePositions();
+        }
+    });
+
+    item.addEventListener("click", () => {
+        activeIndex = index;
+        updatePositions();
+        openModal(item);
+    });
+});
+
+carousel.addEventListener("mouseleave", () => {
+    activeIndex = defaultIndex;
+    updatePositions();
+});
+
+closeModal.addEventListener("click", closeModalFn);
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        closeModalFn();
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeModalFn();
+    }
+});
+
+updatePositions();
+</script>
 
 </body>
 </html>
