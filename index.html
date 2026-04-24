@@ -4,7 +4,6 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Монтаж Каубоя ООД - професионални индустриални решения, монтаж, изработка, стоманени конструкции, силози, елеватори и зърнени инсталации.">
   <title>Монтаж Каубоя ООД</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Oswald:wght@500;600;700&display=swap');
@@ -12,24 +11,15 @@
     :root {
       --bg: #07111f;
       --bg-deep: #030712;
-      --bg-alt: #0b1628;
       --panel: rgba(7, 18, 36, 0.76);
       --panel-strong: rgba(10, 25, 47, 0.9);
-      --panel-soft: rgba(13, 31, 57, 0.72);
       --line: rgba(255, 255, 255, 0.1);
-      --line-strong: rgba(255, 255, 255, 0.18);
       --text: #e8edf5;
       --muted: #b9c5d6;
       --gold: #fbbf24;
       --gold-deep: #f59e0b;
       --cyan: #22d3ee;
-      --cyan-deep: #0ea5b7;
-      --success: #34d399;
-      --danger: #fb7185;
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --radius-xl: 30px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
     }
 
     * {
@@ -76,10 +66,6 @@
       right: -10vw;
       bottom: 10vh;
       background: #fbbf24;
-    }
-
-    a {
-      color: inherit;
     }
 
     .top-strip {
@@ -143,7 +129,7 @@
       opacity: 0;
       transform: translateY(25px);
       animation: slideUp 0.6s ease forwards;
-      transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
       background: transparent;
     }
 
@@ -155,12 +141,8 @@
     .menu a:nth-child(6) { animation-delay: 0.6s; }
     .menu a:nth-child(7) { animation-delay: 0.7s; }
     .menu a:nth-child(8) { animation-delay: 0.8s; }
-    .menu .lang-switcher {
-      animation: slideUp 0.6s ease forwards;
-      animation-delay: 0.9s;
-      opacity: 0;
-      transform: translateY(25px);
-    }
+    .menu a:nth-child(9) { animation-delay: 0.9s; }
+    .menu .lang-switcher { animation: slideUp 0.6s ease forwards; animation-delay: 1s; opacity: 0; transform: translateY(25px); }
 
     @keyframes slideUp {
       to {
@@ -170,14 +152,12 @@
     }
 
     .menu a:hover,
-    .menu a.active,
     .lang-toggle:hover,
     .lang-switcher.open .lang-toggle {
       color: var(--gold);
       background: rgba(255, 255, 255, 0.05);
       border-color: rgba(251, 191, 36, 0.32);
       transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
     }
 
     .lang-switcher {
@@ -287,16 +267,16 @@
 
     .hero {
       position: relative;
-      min-height: 640px;
+      min-height: 560px;
       background:
-        linear-gradient(115deg, rgba(2, 6, 23, 0.84), rgba(2, 6, 23, 0.42)),
+        linear-gradient(115deg, rgba(2, 6, 23, 0.76), rgba(2, 6, 23, 0.3)),
         url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       text-align: center;
-      padding: 50px 20px 80px;
+      padding: 40px 20px;
       isolation: isolate;
     }
 
@@ -307,36 +287,6 @@
       height: 160px;
       background: linear-gradient(180deg, transparent, rgba(3, 7, 18, 0.9));
       z-index: -1;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 40px;
-      border-radius: 36px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
-      margin-bottom: 22px;
-      border-radius: 999px;
-      background: rgba(8, 15, 31, 0.74);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--gold);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0;
-      transform: translateY(24px);
-      animation: heroUp 1s ease forwards;
     }
 
     .hero h2 {
@@ -354,86 +304,14 @@
       opacity: 0;
       transform: translateY(40px);
       animation: heroUp 1s ease forwards;
-      animation-delay: 0.12s;
-    }
-
-    .hero p {
-      max-width: 780px;
-      margin: 22px auto 0;
-      color: #d7e2f1;
-      font-size: clamp(16px, 2vw, 20px);
-      opacity: 0;
-      transform: translateY(40px);
-      animation: heroUp 1s ease forwards;
-      animation-delay: 0.24s;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: heroUp 1s ease forwards;
-      animation-delay: 0.36s;
     }
 
     .hero a {
-      opacity: 1;
-      transform: none;
-      animation: none;
-      box-shadow: 0 18px 35px rgba(245, 158, 11, 0.25);
-    }
-
-    .secondary-btn {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      backdrop-filter: blur(8px);
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(180px, 1fr));
-      gap: 18px;
-      width: min(980px, 100%);
-      margin-top: 44px;
       opacity: 0;
       transform: translateY(40px);
       animation: heroUp 1s ease forwards;
-      animation-delay: 0.48s;
-    }
-
-    .hero-stat {
-      padding: 22px 20px;
-      border-radius: 22px;
-      background: rgba(4, 11, 24, 0.68);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
-      text-align: left;
-    }
-
-    .hero-stat strong {
-      display: block;
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(28px, 4vw, 44px);
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .hero-stat span {
-      color: var(--muted);
-      font-size: 14px;
+      animation-delay: 0.3s;
+      box-shadow: 0 18px 35px rgba(245, 158, 11, 0.25);
     }
 
     @keyframes heroUp {
@@ -448,14 +326,6 @@
       padding: 70px 20px;
       max-width: 1240px;
       margin: auto;
-    }
-
-    .section-shell {
-      padding: 34px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, rgba(8, 18, 34, 0.62), rgba(5, 13, 26, 0.5));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
     }
 
     .container h2 {
@@ -477,115 +347,7 @@
       background: linear-gradient(90deg, var(--gold), var(--cyan));
     }
 
-    .section-lead {
-      max-width: 760px;
-      margin: -10px 0 28px;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.9fr);
-      gap: 26px;
-      align-items: stretch;
-    }
-
-    .highlight-panel,
-    .feature-panel,
-    .info-card {
-      position: relative;
-      overflow: hidden;
-      padding: 28px;
-      border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background:
-        linear-gradient(145deg, rgba(14, 28, 48, 0.52), rgba(5, 13, 26, 0.22)),
-        radial-gradient(circle at top left, rgba(34, 211, 238, 0.14), transparent 48%),
-        radial-gradient(circle at bottom right, rgba(251, 191, 36, 0.14), transparent 44%);
-      backdrop-filter: blur(18px);
-      box-shadow:
-        0 22px 50px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      margin-bottom: 18px;
-      border-radius: 999px;
-      background: rgba(251, 191, 36, 0.12);
-      border: 1px solid rgba(251, 191, 36, 0.18);
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .highlight-panel h3,
-    .feature-panel h3,
-    .info-card h3,
-    .process-card h3 {
-      margin: 0 0 14px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 28px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #fff;
-    }
-
-    .highlight-panel p,
-    .feature-panel p,
-    .info-card p {
-      margin: 0 0 18px;
-      color: var(--muted);
-    }
-
-    .feature-list,
-    .metric-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .feature-item,
-    .metric-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .feature-icon,
-    .metric-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(251, 191, 36, 0.18), rgba(34, 211, 238, 0.18));
-      color: var(--gold);
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-
-    .feature-item strong,
-    .metric-item strong {
-      display: block;
-      margin-bottom: 4px;
-      color: #fff;
-    }
-
     .services,
-    .process-grid,
-    .values-grid,
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -616,7 +378,8 @@
     }
 
     .card,
-    .process-card {
+    .contact-item,
+    .contact-panel {
       position: relative;
       overflow: hidden;
       padding: 28px;
@@ -635,12 +398,16 @@
         box-shadow 0.35s ease,
         border-color 0.35s ease,
         background 0.35s ease;
-      cursor: pointer;
       isolation: isolate;
     }
 
+    .card {
+      cursor: pointer;
+    }
+
     .card::before,
-    .process-card::before {
+    .contact-item::before,
+    .contact-panel::before {
       content: "";
       position: absolute;
       top: 18px;
@@ -655,7 +422,8 @@
     }
 
     .card::after,
-    .process-card::after {
+    .contact-item::after,
+    .contact-panel::after {
       content: "";
       position: absolute;
       inset: auto -20% -45% auto;
@@ -670,7 +438,8 @@
     }
 
     .card:hover,
-    .process-card:hover {
+    .contact-item:hover,
+    .contact-panel:hover {
       transform: translateY(-12px) scale(1.02);
       border-color: rgba(251, 191, 36, 0.24);
       background:
@@ -684,19 +453,23 @@
     }
 
     .card:hover::before,
-    .process-card:hover::before {
+    .contact-item:hover::before,
+    .contact-panel:hover::before {
       width: 124px;
       transform: translateY(-1px);
       box-shadow: 0 0 22px rgba(34, 211, 238, 0.34);
     }
 
     .card:hover::after,
-    .process-card:hover::after {
+    .contact-item:hover::after,
+    .contact-panel:hover::after {
       transform: translate(-16px, -16px) scale(1.12);
       opacity: 0.95;
     }
 
-    .card h3 {
+    .card h3,
+    .contact-item strong,
+    .contact-panel h3 {
       margin-top: 0;
       margin-bottom: 10px;
       color: var(--gold);
@@ -704,7 +477,8 @@
     }
 
     .card p,
-    .process-card p {
+    .contact-item span,
+    .contact-panel p {
       margin-bottom: 0;
       color: var(--muted);
     }
@@ -740,232 +514,9 @@
       filter: brightness(1.06);
     }
 
-    .reference-meta {
-      margin-top: 14px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 13px;
-      color: #d8e3f2;
-    }
-
-    .reference-meta span {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .process-card {
-      cursor: default;
-    }
-
-    .process-step {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      margin-bottom: 18px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(34, 211, 238, 0.2));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #fff;
-      font-family: 'Oswald', sans-serif;
-      font-size: 24px;
-    }
-
-    .values-grid {
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
-    .value-chip {
-      padding: 20px 18px;
-      border-radius: 20px;
-      text-align: center;
-      font-weight: 800;
-      color: #fff;
-      background: linear-gradient(180deg, rgba(10, 25, 47, 0.84), rgba(8, 18, 34, 0.66));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .split-section {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
-      gap: 24px;
-      align-items: start;
-    }
-
-    form {
-      background: linear-gradient(180deg, rgba(8, 18, 34, 0.88), rgba(5, 13, 26, 0.94));
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .inquiry-intro {
-      max-width: 700px;
-      margin: 0 auto 24px;
-      padding: 24px 26px;
-      background: linear-gradient(180deg, rgba(10, 25, 47, 0.8), rgba(7, 18, 36, 0.92));
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .inquiry-intro h3 {
-      margin: 0 0 12px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 28px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .inquiry-intro p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 15px;
-    }
-
-    .form-grid .full {
-      grid-column: 1 / -1;
-    }
-
-    .form-note,
-    .status-message {
-      margin-top: 14px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .status-message {
-      display: none;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid transparent;
-    }
-
-    .status-message.show {
-      display: block;
-    }
-
-    .status-message.success {
-      color: #d1fae5;
-      background: rgba(16, 185, 129, 0.12);
-      border-color: rgba(16, 185, 129, 0.28);
-    }
-
-    .status-message.error {
-      color: #ffe4e6;
-      background: rgba(244, 63, 94, 0.12);
-      border-color: rgba(244, 63, 94, 0.28);
-    }
-
-    .quick-contact {
-      display: grid;
-      gap: 18px;
-    }
-
-    .quick-contact a {
-      text-decoration: none;
-    }
-
-    .quick-contact-card {
-      padding: 22px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(10, 25, 47, 0.82), rgba(6, 15, 29, 0.86));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .quick-contact-card strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #fff;
-    }
-
-    .quick-contact-card span {
-      color: var(--muted);
-    }
-
-    input, textarea, select, button {
-      font-family: inherit;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      padding: 16px 18px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(15, 23, 42, 0.9);
-      color: #fff;
-      outline: none;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    }
-
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: rgba(34, 211, 238, 0.8);
-      box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12);
-      transform: translateY(-1px);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    button,
-    .hero a {
-      border: none;
-      padding: 15px 22px;
-      border-radius: 16px;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
-    }
-
-    button:hover,
-    .hero a:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.03);
-    }
-
-    button:disabled {
-      opacity: 0.7;
-      cursor: wait;
-    }
-
-    #contact p,
-    .container > p {
-      color: var(--muted);
-      font-size: 17px;
-      margin: 10px 0;
-    }
-
-    .container > img {
-      display: block;
-      width: min(1240px, calc(100% - 40px));
-      margin: 0 auto 30px;
-      border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
-    }
-
     .contact-grid {
       grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      align-items: start;
     }
 
     .contact-list {
@@ -977,91 +528,36 @@
       display: flex;
       align-items: flex-start;
       gap: 14px;
-      padding: 18px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .contact-item strong {
-      display: block;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-
-    .contact-panel {
-      padding: 28px;
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(11, 26, 48, 0.92), rgba(5, 13, 26, 0.94));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-panel h3 {
-      margin: 0 0 14px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 28px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    .contact-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.18), rgba(34, 211, 238, 0.18));
       color: var(--gold);
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 4px;
     }
 
-    .contact-panel p {
-      margin: 0 0 20px;
-      color: var(--muted);
-    }
-
-    .contact-panel .secondary-btn {
+    .secondary-btn {
+      display: inline-block;
       width: 100%;
       text-align: center;
-    }
-
-    .bottom-banner-wrap {
-      width: min(700px, calc(100% - 40px));
-      margin: 16px auto 34px;
-      padding: 0;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
-      background: linear-gradient(180deg, rgba(10, 25, 47, 0.9), rgba(6, 15, 29, 0.92));
-    }
-
-    .bottom-banner {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 0;
-      object-fit: contain;
-    }
-
-    footer {
-      text-align: center;
-      padding: 34px 20px;
-      background: rgba(2, 6, 23, 0.9);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--muted);
-    }
-
-    #topBtn {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-      color: black;
-      border: none;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      font-size: 22px;
-      cursor: pointer;
-      display: none;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
-      z-index: 1500;
-    }
-
-    #topBtn:hover {
-      background: linear-gradient(135deg, #ffd56a, #f59e0b);
+      padding: 12px 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      backdrop-filter: blur(8px);
+      margin-top: 14px;
     }
 
     .lightbox {
@@ -1156,27 +652,134 @@
       background: rgba(255, 255, 255, 0.95);
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+    form {
+      background: linear-gradient(180deg, rgba(8, 18, 34, 0.88), rgba(5, 13, 26, 0.94));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
+    .inquiry-intro {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      padding: 24px 26px;
+      background: linear-gradient(180deg, rgba(10, 25, 47, 0.8), rgba(7, 18, 36, 0.92));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
     }
 
-    @media (max-width: 980px) {
-      .intro-grid,
-      .split-section,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+    .inquiry-intro h3 {
+      margin: 0 0 12px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
 
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
+    .inquiry-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    input, textarea, select, button {
+      font-family: inherit;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(15, 23, 42, 0.9);
+      color: #fff;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+      margin-bottom: 15px;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: rgba(34, 211, 238, 0.8);
+      box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12);
+      transform: translateY(-1px);
+    }
+
+    button,
+    .hero a {
+      border: none;
+      padding: 15px 22px;
+      border-radius: 16px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+
+    button:hover,
+    .hero a:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+    }
+
+    #contact p,
+    .container > p {
+      color: var(--muted);
+      font-size: 17px;
+      margin: 10px 0;
+    }
+
+    .bottom-banner-wrap {
+      width: min(700px, calc(100% - 40px));
+      margin: 16px auto 34px;
+      padding: 0;
+      border-radius: 0;
+      overflow: hidden;
+      border: none;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .bottom-banner {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      object-fit: contain;
+    }
+
+    footer {
+      text-align: center;
+      padding: 34px 20px;
+      background: rgba(2, 6, 23, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+    }
+
+    #topBtn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+      color: black;
+      border: none;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+      z-index: 1500;
+    }
+
+    #topBtn:hover {
+      background: linear-gradient(135deg, #ffd56a, #f59e0b);
     }
 
     @media (max-width: 768px) {
@@ -1203,11 +806,7 @@
       }
 
       .hero {
-        min-height: 540px;
-      }
-
-      .hero::after {
-        inset: 18px;
+        min-height: 430px;
       }
 
       .hero h2 {
@@ -1234,19 +833,15 @@
         padding: 54px 20px;
       }
 
-      .section-shell,
       .card,
-      .process-card,
       form,
       .inquiry-intro,
-      .highlight-panel,
-      .feature-panel,
-      .contact-panel,
-      .info-card {
+      .contact-item,
+      .contact-panel {
         padding: 22px;
       }
 
-      .form-grid {
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1263,6 +858,7 @@
       .bottom-banner-wrap {
         width: calc(100% - 24px);
         margin-bottom: 24px;
+        padding: 0;
       }
 
       .bottom-banner {
@@ -1293,6 +889,7 @@
     <a href="#">Начало</a>
     <a href="#services">Услуги</a>
     <a href="#certificates">Референции</a>
+    <a href="#licenses">Лицензи</a>
     <a href="#inquiry">Запитване</a>
     <a href="#careers">Кандидатура</a>
     <a href="maps.html">Карта</a>
@@ -1322,94 +919,14 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-badge">Индустриален монтаж • Изработка • Надеждност</div>
     <h2>Висок клас монтаж и изработка</h2>
-    <p></p>
-    <div class="hero-actions">
-      <a href="#careers" style="display:inline-block; background:#fbbf24; color:black; text-decoration:none; border-radius:10px; font-weight:bold;">
-        Кандидатствай сега
-      </a>
-      <a class="secondary-btn" href="#inquiry">Изпрати запитване</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <strong>360°</strong>
-        <span>Подход към монтаж, производство и координация</span>
-      </div>
-      <div class="hero-stat">
-        <strong>24/7</strong>
-        <span>Комуникация при активни обекти и технически задачи</span>
-      </div>
-      <div class="hero-stat">
-        <strong>BG</strong>
-        <span>Подготовка за работа по мащабни индустриални проекти</span>
-      </div>
-    </div>
+    <a href="#careers" style="margin-top:20px; display:inline-block; padding:12px 20px; background:#fbbf24; color:black; text-decoration:none; border-radius:10px; font-weight:bold;">
+      Кандидатствай сега
+    </a>
   </section>
-
-  <div class="container reveal">
-    <div class="section-shell intro-grid">
-      <div class="highlight-panel">
-        <span class="eyebrow">За компанията</span>
-        <h3>Силен партньор за индустриални обекти</h3>
-        <p></p>
-        <div class="feature-list">
-          <div class="feature-item">
-            <span class="feature-icon">⚙</span>
-            <div>
-              <strong>Реален индустриален характер</strong>
-              <span>Тъмна premium визия със златни и циан акценти, които стоят стабилно и професионално.</span>
-            </div>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">🛠</span>
-            <div>
-              <strong>Запазено е всичко твое</strong>
-              <span>Нито една от основните секции не е махната, само е облечена в по-силен дизайн и структура.</span>
-            </div>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">🚀</span>
-            <div>
-              <strong>По-добро първо впечатление</strong>
-              <span>Hero секцията, статистиките и подредбата вече продават доверие още в първите секунди.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="feature-panel">
-        <span class="eyebrow">Защо да ни изберат</span>
-        <h3>Резултати, на които може да се разчита</h3>
-        <div class="metric-list">
-          <div class="metric-item">
-            <span class="metric-icon">01</span>
-            <div>
-              <strong>Точна организация</strong>
-              <span>Планиране, изпълнение и проследяване на всеки етап.</span>
-            </div>
-          </div>
-          <div class="metric-item">
-            <span class="metric-icon">02</span>
-            <div>
-              <strong>Качество на монтажа</strong>
-              <span>Фокус върху прецизна сглобка, устойчивост и надеждна експлоатация.</span>
-            </div>
-          </div>
-          <div class="metric-item">
-            <span class="metric-icon">03</span>
-            <div>
-              <strong>Гъвкав екип</strong>
-              <span>Подходящ за разнообразни индустриални обекти и технически изисквания.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div class="container" id="services">
     <h2>Нашите услуги</h2>
-    <p class="section-lead"></p>
     <div class="services">
       <div class="card" onclick="location.href='silos.html'">
         <div class="card-tag">Индустриални системи</div>
@@ -1447,163 +964,90 @@
         <p>Монтаж на елеватори</p>
       </div>
       <div class="card" onclick="location.href='she.html'">
-        <div class="card-tag">Механизация</div>
+        <div class="card-tag">Шнекова техника</div>
         <h3>Шнекове</h3>
         <p>Монтаж на шнекове</p>
       </div>
     </div>
   </div>
 
-  <div class="container reveal">
-    <h2>Как работим</h2>
-    <p class="section-lead"></p>
-    <div class="process-grid">
-      <div class="process-card">
-        <div class="process-step">1</div>
-        <h3>Оглед и анализ</h3>
-        <p>Изясняваме техническите параметри, сроковете и нуждите на обекта преди стартиране.</p>
-      </div>
-      <div class="process-card">
-        <div class="process-step">2</div>
-        <h3>Планиране</h3>
-        <p>Подготвяме последователност на работа, монтажни дейности и координация на изпълнението.</p>
-      </div>
-      <div class="process-card">
-        <div class="process-step">3</div>
-        <h3>Изпълнение</h3>
-        <p>Монтажът се извършва с фокус върху прецизност, безопасност и контрол върху качеството.</p>
-      </div>
-      <div class="process-card">
-        <div class="process-step">4</div>
-        <h3>Предаване</h3>
-        <p>Финален преглед, документиране и готовност за реална експлоатация на съоръжението.</p>
-      </div>
-    </div>
-  </div>
-
   <div class="container" id="certificates">
     <h2>Референции</h2>
-    <p class="section-lead"></p>
     <div class="services">
       <div class="card">
         <div class="card-tag">Документ</div>
         <h3>Референция 1</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 1">
-        <div class="reference-meta"><span>Клиентска препоръка</span><span>Визуализиране</span></div>
         <p>Описание.</p>
       </div>
       <div class="card">
         <div class="card-tag">Документ</div>
         <h3>Референция 2</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция1.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 2">
-        <div class="reference-meta"><span>Индустриален проект</span><span>Проверима история</span></div>
         <p>Описание.</p>
       </div>
       <div class="card">
         <div class="card-tag">Документ</div>
         <h3>Референция 3</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция2.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 3">
-        <div class="reference-meta"><span>Изпълнен обект</span><span>Професионален монтаж</span></div>
         <p>Описание.</p>
       </div>
       <div class="card">
         <div class="card-tag">Документ</div>
         <h3>Референция 4</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция3.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 4">
-        <div class="reference-meta"><span>Партньорство</span><span>Доверие</span></div>
         <p>Описание.</p>
       </div>
       <div class="card">
         <div class="card-tag">Документ</div>
         <h3>Референция 5</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция4.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 5">
-        <div class="reference-meta"><span>Производствена среда</span><span>Изпълнение</span></div>
         <p>Описание.</p>
       </div>
       <div class="card">
         <div class="card-tag">Документ</div>
         <h3>Референция 6</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция5.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 6">
-        <div class="reference-meta"><span>Технически капацитет</span><span>Реален резултат</span></div>
         <p>Описание.</p>
       </div>
       <div class="card">
         <div class="card-tag">Документ</div>
         <h3>Референция 7</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция6.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 7">
-        <div class="reference-meta"><span>Индустриална дейност</span><span>Сигурност</span></div>
         <p>Описание.</p>
       </div>
       <div class="card">
         <div class="card-tag">Документ</div>
         <h3>Референция 8</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Референция7.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 8">
-        <div class="reference-meta"><span>Препоръка</span><span>Качество</span></div>
         <p>Описание.</p>
       </div>
       <div class="card">
         <div class="card-tag">Документ</div>
         <h3>Референция 9</h3>
         <img src="https://github.com/darknight-rp/montage/blob/main/Ref_KZU_page-0001.jpg?raw=true" onclick="openImg(this.src)" alt="Референция 9">
-        <div class="reference-meta"><span>Референция</span><span>Портфолио</span></div>
         <p>Описание.</p>
       </div>
     </div>
   </div>
 
-  <div class="container reveal">
-    <div class="section-shell split-section">
-      <div class="info-card">
-        <span class="eyebrow">Предимства</span>
-        <h3></h3>
-        <p></p>
-        <div class="feature-list">
-          <div class="feature-item">
-            <span class="feature-icon">✓</span>
-            <div>
-              <strong>Секции с реална стойност</strong>
-              <span>Процес на работа, предимства, бърз контакт и по-добър hero блок.</span>
-            </div>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">✓</span>
-            <div>
-              <strong>По-силни форми</strong>
-              <span>Добавени са статус съобщения и по-изчистено потребителско поведение при изпращане.</span>
-            </div>
-          </div>
-          <div class="feature-item">
-            <span class="feature-icon">✓</span>
-            <div>
-              <strong>По-добра навигация</strong>
-              <span>Менюто вече може да маркира активната секция при скрол.</span>
-            </div>
-          </div>
-        </div>
+  <div class="container" id="licenses">
+    <h2>Лицензи</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Лиценз 1</h3>
+        <img src="https://raw.githubusercontent.com/darknight-rp/montage/refs/heads/main/rotated_up.png" onclick="openImg(this.src)" alt="Лиценз 1">
+        <p>Удостоверение Камара на строителите 2026</p>
       </div>
-      <div class="info-card">
-        <span class="eyebrow">Бърз контакт</span>
-        <h3>Свържи се веднага</h3>
-        <div class="quick-contact">
-          <a href="tel:+359889221597">
-            <div class="quick-contact-card">
-              <strong>Телефон 1</strong>
-              <span>088 922 1597</span>
-            </div>
-          </a>
-          <a href="tel:+359889221589">
-            <div class="quick-contact-card">
-              <strong>Телефон 2</strong>
-              <span>088 922 1589</span>
-            </div>
-          </a>
-          <a href="mailto:montazh.kauboya@gmail.com">
-            <div class="quick-contact-card">
-              <strong>Основен имейл</strong>
-              <span>montazh.kauboya@gmail.com</span>
-            </div>
-          </a>
-        </div>
+      <div class="card">
+        <h3>Лиценз 2</h3>
+        <img src="https://raw.githubusercontent.com/darknight-rp/montage/refs/heads/main/rotated2.png" onclick="openImg(this.src)" alt="Лиценз 2">
+        <p>Удостоверение СМР Камара на строителите 2026</p>
+      </div>
+      <div class="card">
+        <h3>Лиценз 3</h3>
+        <img src="https://github.com/darknight-rp/montage/blob/main/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%20%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%20%D0%BA%D1%80%D0%B0%D0%BD%D0%BE%D0%B2%D0%B5_page-0001.jpg?raw=true" onclick="openImg(this.src)" alt="Лиценз 3">
+        <p>Лиценз ремонт на кранове 2026</p>
       </div>
     </div>
   </div>
@@ -1615,42 +1059,33 @@
       <p>Ако желаете да се свържете с нас, освен по телефон и имейл, можете да ни изпратите съобщение и през формата за запитване. Ще ви отговорим при първа възможност.</p>
     </div>
     <form id="contactForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-      <div class="form-grid">
-        <input name="email" placeholder="Имейл адрес" required type="email">
-        <input name="name" placeholder="Име" type="text">
-        <select name="type">
-          <option selected>Общи въпроси</option>
-          <option>Оферта</option>
-          <option>Проект</option>
-        </select>
-        <input name="title" placeholder="Заглавие" required type="text">
-        <textarea class="full" name="message" placeholder="Вашето съобщение" required></textarea>
-      </div>
-      <button type="submit" style="background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">
+      <input name="email" placeholder="Имейл адрес" required type="email">
+      <input name="name" placeholder="Име" type="text">
+      <select name="type">
+        <option selected>Общи въпроси</option>
+        <option>Оферта</option>
+        <option>Проект</option>
+      </select>
+      <input name="title" placeholder="Заглавие" required type="text">
+      <textarea name="message" placeholder="Вашето съобщение" required style="height:120px;"></textarea>
+      <button style="background:linear-gradient(to right,#06b6d4,#3b82f6);color:white;font-size:16px;cursor:pointer;">
         Изпрати съобщение
       </button>
-      <div class="form-note">Ще използваме изпратената информация само за връзка с вас по конкретното запитване.</div>
-      <div class="status-message" id="contactStatus" aria-live="polite"></div>
     </form>
   </div>
 
   <div class="container" id="careers">
     <h2>Кандидатура</h2>
-    <p class="section-lead"></p>
     <form id="careerForm" style="max-width:700px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-      <div class="form-grid">
-        <input name="name" placeholder="Име и фамилия" required type="text">
-        <input name="email" placeholder="Имейл" required type="email">
-        <input name="phone" placeholder="Телефон" required type="text">
-        <input name="position" placeholder="Позиция" type="text">
-        <textarea class="full" name="message" placeholder="Представяне / опит" required></textarea>
-        <input class="full" name="cv" accept=".pdf,.doc,.docx" style="color:white;" type="file">
-      </div>
-      <button type="submit" style="background:linear-gradient(to right,#fbbf24,#f59e0b);color:black;font-size:16px;cursor:pointer;">
+      <input name="name" placeholder="Име и фамилия" required type="text">
+      <input name="email" placeholder="Имейл" required type="email">
+      <input name="phone" placeholder="Телефон" required type="text">
+      <input name="position" placeholder="Позиция" type="text">
+      <textarea name="message" placeholder="Представяне / опит" required style="height:120px;"></textarea>
+      <input name="cv" accept=".pdf,.doc,.docx" style="color:white;" type="file">
+      <button style="background:linear-gradient(to right,#fbbf24,#f59e0b);color:black;font-size:16px;cursor:pointer;">
         Изпрати кандидатура
       </button>
-      <div class="form-note">Прикачете CV файл, ако желаете да разгледаме кандидатурата по-подробно.</div>
-      <div class="status-message" id="careerStatus" aria-live="polite"></div>
     </form>
   </div>
 
@@ -1659,28 +1094,28 @@
     <div class="contact-grid">
       <div class="contact-list">
         <div class="contact-item">
-          <span class="feature-icon">📍</span>
-          <div>
-            <strong>Офис</strong>
-            <span>8602 Ямбол, България</span>
-          </div>
-        </div>
-        <div class="contact-item">
-          <span class="feature-icon">👤</span>
+          <span class="contact-icon">👤</span>
           <div>
             <strong>Управители</strong>
             <span>Анна Тодорова - 0889221597<br>Христо Христов - 0889221589</span>
           </div>
         </div>
         <div class="contact-item">
-          <span class="feature-icon">✉</span>
+          <span class="contact-icon">📍</span>
+          <div>
+            <strong>Офис</strong>
+            <span>8602 Ямбол, България</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✉</span>
           <div>
             <strong>Имейли</strong>
             <span>montazh.kauboya@gmail.com<br>montage_cowboy@abv.bg</span>
           </div>
         </div>
         <div class="contact-item">
-          <span class="feature-icon">🏭</span>
+          <span class="contact-icon">🏭</span>
           <div>
             <strong>База</strong>
             <span>град Ямбол, кв. „Тракия“ №100</span>
@@ -1688,24 +1123,22 @@
         </div>
       </div>
       <div class="contact-panel">
-        <h3>Готови за нов проект</h3>
-        <p>Ако имате нужда от изпълнител за монтаж, изработка или индустриално оборудване, изпратете запитване и ще се свържем с вас.</p>
-        <a class="secondary-btn" href="#inquiry">Към формата за запитване</a>
+        <h3>Свържете се с нас</h3>
+        <p>За монтаж, изработка или индустриален проект може да ни потърсите директно по телефон или чрез формата за запитване.</p>
+        <a class="secondary-btn" href="#inquiry">Към запитването</a>
       </div>
     </div>
   </div>
 
-  <div class="container reveal">
+  <div class="container">
     <h2>Допълнителна информация</h2>
-    <p class="section-lead"></p>
-    <div class="values-grid">
-      <div class="value-chip">Професионализъм</div>
-      <div class="value-chip">Високо качество</div>
-      <div class="value-chip">Бързина</div>
-      <div class="value-chip">Предприемчивост</div>
-      <div class="value-chip">Коректни взаимоотношения</div>
-      <div class="value-chip">Усъвършенстване</div>
-    </div>
+    <p>Нашата бизнес етика:</p>
+    <p>Професионализъм</p>
+    <p>Високо качество</p>
+    <p>Бързина</p>
+    <p>Предприемчивост</p>
+    <p>Коректни взаимоотношения</p>
+    <p>Усъвършенстване</p>
   </div>
 
   <div class="bottom-banner-wrap">
@@ -1720,13 +1153,13 @@
     <p>© 2026 МОНТАЖ КАУБОЯ ООД</p>
   </footer>
 
-  <button id="topBtn" onclick="scrollToTop()" aria-label="Към началото">↑</button>
+  <button id="topBtn" onclick="scrollToTop()">↑</button>
 
   <div id="lightbox" class="lightbox" onclick="closeImg(event)">
     <div class="lightbox-content">
-      <button class="close-btn" onclick="closeImg(event)" aria-label="Затвори">×</button>
-      <button class="zoom-btn zoom-in" onclick="zoomIn(event)" aria-label="Увеличи">+</button>
-      <button class="zoom-btn zoom-out" onclick="zoomOut(event)" aria-label="Намали">−</button>
+      <button class="close-btn" onclick="closeImg(event)">×</button>
+      <button class="zoom-btn zoom-in" onclick="zoomIn(event)">+</button>
+      <button class="zoom-btn zoom-out" onclick="zoomOut(event)">−</button>
       <div class="lightbox-img-wrap">
         <img id="lightbox-img" src="" alt="Увеличена снимка" onclick="event.stopPropagation()">
       </div>
@@ -1740,14 +1173,11 @@
     const currentLangFlag = document.getElementById("currentLangFlag");
     const currentLangLabel = document.getElementById("currentLangLabel");
     const langOptions = document.querySelectorAll(".lang-option");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const menuLinks = document.querySelectorAll(".menu a[href^='#']");
-    const sections = document.querySelectorAll("section[id], div[id]");
-    const revealItems = document.querySelectorAll(".reveal");
     let zoomLevel = 1;
     const zoomStep = 0.2;
     const maxZoom = 3;
     const minZoom = 0.6;
+    const lightboxImg = document.getElementById("lightbox-img");
 
     window.onscroll = function () {
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -1762,13 +1192,11 @@
       lightboxImg.src = src;
       updateZoom();
       document.getElementById("lightbox").style.display = "flex";
-      document.body.style.overflow = "hidden";
     }
 
     function closeImg(event) {
       if (!event || event.target.id === "lightbox" || event.currentTarget.classList.contains("close-btn")) {
         document.getElementById("lightbox").style.display = "none";
-        document.body.style.overflow = "";
       }
     }
 
@@ -1803,79 +1231,6 @@
       currentLangLabel.textContent = activeOption.dataset.lang;
     }
 
-    function setStatus(statusElement, type, message) {
-      statusElement.className = "status-message show " + type;
-      statusElement.textContent = message;
-    }
-
-    async function handleFormSubmit(formId, statusId, successMessage, submitText) {
-      const form = document.getElementById(formId);
-      const status = document.getElementById(statusId);
-      const submitButton = form.querySelector("button[type='submit']");
-      const originalText = submitButton.textContent;
-
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        submitButton.disabled = true;
-        submitButton.textContent = submitText;
-        status.className = "status-message";
-        status.textContent = "";
-
-        try {
-          const formData = new FormData(form);
-          const response = await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
-            method: "POST",
-            headers: { "Accept": "application/json" },
-            body: formData
-          });
-
-          if (!response.ok) {
-            throw new Error("Неуспешно изпращане");
-          }
-
-          setStatus(status, "success", successMessage);
-          form.reset();
-        } catch (error) {
-          setStatus(status, "error", "Възникна проблем при изпращането. Моля, опитайте отново или се свържете с нас по телефон.");
-        } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
-        }
-      });
-    }
-
-    function updateActiveMenuLink() {
-      let currentId = "";
-
-      sections.forEach(function (section) {
-        const top = section.offsetTop - 140;
-        const bottom = top + section.offsetHeight;
-        if (window.scrollY >= top && window.scrollY < bottom) {
-          currentId = section.id;
-        }
-      });
-
-      menuLinks.forEach(function (link) {
-        link.classList.remove("active");
-        const href = link.getAttribute("href").replace("#", "");
-        if (href && href === currentId) {
-          link.classList.add("active");
-        }
-      });
-    }
-
-    const revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        }
-      });
-    }, { threshold: 0.16 });
-
-    revealItems.forEach(function (item) {
-      revealObserver.observe(item);
-    });
-
     langOptions.forEach(function (option) {
       option.addEventListener("click", function () {
         langOptions.forEach(function (item) {
@@ -1887,7 +1242,6 @@
     });
 
     syncCurrentLanguage();
-    updateActiveMenuLink();
 
     langToggle.addEventListener("click", function (event) {
       event.stopPropagation();
@@ -1907,7 +1261,6 @@
       if (lightbox.style.display === "flex") {
         if (e.key === "Escape") {
           lightbox.style.display = "none";
-          document.body.style.overflow = "";
         }
         if (e.key === "+" || e.key === "=") {
           if (zoomLevel < maxZoom) {
@@ -1929,10 +1282,29 @@
       }
     });
 
-    window.addEventListener("scroll", updateActiveMenuLink);
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: formData
+      });
+      alert("Съобщението е изпратено успешно!");
+      this.reset();
+    });
 
-    handleFormSubmit("contactForm", "contactStatus", "Съобщението е изпратено успешно!", "Изпращане...");
-    handleFormSubmit("careerForm", "careerStatus", "Кандидатурата е изпратена успешно!", "Изпращане...");
+    document.getElementById("careerForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      await fetch("https://formsubmit.co/ajax/montazh.kauboya@gmail.com", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: formData
+      });
+      alert("Кандидатурата е изпратена успешно!");
+      this.reset();
+    });
   </script>
 </body>
 </html>
