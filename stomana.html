@@ -166,6 +166,7 @@ h1 {
 .carousel-shell {
     position: relative;
     height: 360px;
+    overflow: visible;
 }
 
 .carousel-shadow {
@@ -189,7 +190,7 @@ h1 {
 
 .carousel-item {
     position: absolute;
-    top: 30px;
+    top: 42px;
     left: 50%;
     width: 210px;
     height: 280px;
@@ -199,14 +200,18 @@ h1 {
     overflow: hidden;
     cursor: pointer;
     background: #1b130d;
-    transform: translateX(-50%) scale(0.96);
     transform-origin: center bottom;
     box-shadow:
         0 22px 44px rgba(54, 31, 12, 0.22),
         inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-    transition: transform 0.45s ease, opacity 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
-    opacity: 0;
-    filter: blur(1px);
+    transition:
+        transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.85s ease,
+        box-shadow 0.85s ease,
+        filter 0.85s ease;
+    opacity: 1;
+    filter: blur(0);
+    will-change: transform, opacity;
 }
 
 .carousel-item img {
@@ -250,54 +255,50 @@ h1 {
     color: rgba(255, 241, 225, 0.8);
 }
 
-.carousel-shell:hover .carousel-item {
-    opacity: 1;
-    filter: blur(0);
+.carousel-item.pos-1 {
+    z-index: 2;
+    transform: translateX(-108%) rotate(-17deg) scale(0.93);
+}
+
+.carousel-item.pos-2 {
+    z-index: 5;
+    transform: translateX(-50%) scale(1.04);
+    box-shadow:
+        0 28px 56px rgba(54, 31, 12, 0.28),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.carousel-item.pos-3 {
+    z-index: 2;
+    transform: translateX(8%) rotate(17deg) scale(0.93);
+}
+
+.carousel-item:hover {
+    filter: brightness(1.05);
 }
 
 .carousel-shell:not(:hover) .carousel-item {
+    opacity: 0;
     pointer-events: none;
+    transform: translateX(-50%) translateY(18px) scale(0.92);
 }
 
-.carousel-shell:not(:hover) .carousel-item.active {
+.carousel-shell:not(:hover) .carousel-item.pos-2 {
     opacity: 1;
-    filter: blur(0);
     pointer-events: auto;
-    z-index: 5;
-    transform: translateX(-50%) scale(1);
-}
-
-.carousel-shell:hover .carousel-item.active {
-    z-index: 5;
-    transform: translateX(-50%) scale(1.02);
-    box-shadow:
-        0 28px 56px rgba(54, 31, 12, 0.28),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+    transform: translateX(-50%) translateY(0) scale(1.04);
 }
 
 .carousel-shell:hover .carousel-item.pos-1 {
-    z-index: 1;
-    transform: translateX(-140%) rotate(-22deg) scale(0.92);
+    transform: translateX(-116%) translateY(-6px) rotate(-21deg) scale(0.95);
 }
 
 .carousel-shell:hover .carousel-item.pos-2 {
-    z-index: 3;
-    transform: translateX(-94%) rotate(-12deg) scale(0.96);
+    transform: translateX(-50%) translateY(-8px) scale(1.06);
 }
 
 .carousel-shell:hover .carousel-item.pos-3 {
-    z-index: 5;
-    transform: translateX(-50%) scale(1.02);
-}
-
-.carousel-shell:hover .carousel-item.pos-4 {
-    z-index: 3;
-    transform: translateX(-6%) rotate(12deg) scale(0.96);
-}
-
-.carousel-shell:hover .carousel-item.pos-5 {
-    z-index: 1;
-    transform: translateX(40%) rotate(22deg) scale(0.92);
+    transform: translateX(16%) translateY(-6px) rotate(21deg) scale(0.95);
 }
 
 .modal {
@@ -339,6 +340,11 @@ h1 {
     font-size: 1.4rem;
     cursor: pointer;
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
 }
 
 .modal-image {
@@ -414,24 +420,36 @@ button:hover {
     }
 
     .carousel-item {
-        width: 180px;
-        height: 245px;
+        width: 168px;
+        height: 232px;
+    }
+
+    .carousel-item.pos-1 {
+        transform: translateX(-98%) rotate(-15deg) scale(0.9);
+    }
+
+    .carousel-item.pos-2 {
+        transform: translateX(-50%) scale(1.02);
+    }
+
+    .carousel-item.pos-3 {
+        transform: translateX(-2%) rotate(15deg) scale(0.9);
+    }
+
+    .carousel-shell:not(:hover) .carousel-item.pos-2 {
+        transform: translateX(-50%) translateY(0) scale(1.02);
     }
 
     .carousel-shell:hover .carousel-item.pos-1 {
-        transform: translateX(-126%) rotate(-18deg) scale(0.9);
+        transform: translateX(-106%) translateY(-4px) rotate(-19deg) scale(0.92);
     }
 
     .carousel-shell:hover .carousel-item.pos-2 {
-        transform: translateX(-86%) rotate(-10deg) scale(0.94);
+        transform: translateX(-50%) translateY(-6px) scale(1.04);
     }
 
-    .carousel-shell:hover .carousel-item.pos-4 {
-        transform: translateX(-14%) rotate(10deg) scale(0.94);
-    }
-
-    .carousel-shell:hover .carousel-item.pos-5 {
-        transform: translateX(26%) rotate(18deg) scale(0.9);
+    .carousel-shell:hover .carousel-item.pos-3 {
+        transform: translateX(6%) translateY(-4px) rotate(19deg) scale(0.92);
     }
 }
 </style>
@@ -485,10 +503,10 @@ button:hover {
                     <div class="carousel-stage">
                         <button class="carousel-item pos-1" type="button"
                             data-title="МОНТАЖ КАУБОЯ ООД"
-                            data-subtitle="МОНТАЖ КАУБОЯ ООД"
+                            data-subtitle=""
                             data-description="Конструкция за индустриални и складови пространства с висока надеждност и чист силует."
                             data-image="https://github.com/darknight-rp/montage/blob/main/stomanena1.jpg?raw=true">
-                            <img src="https://github.com/darknight-rp/montage/blob/main/stomanena1.jpg?raw=true" alt="">
+                            <img src="https://github.com/darknight-rp/montage/blob/main/stomanena1.jpg?raw=true" alt="Стоманена конструкция 1">
                             <div class="carousel-caption">
                                 <strong></strong>
                                 <span></span>
@@ -496,23 +514,23 @@ button:hover {
                         </button>
 
                         <button class="carousel-item pos-2" type="button"
-                            data-title="МОНТАЖ КАУБОЯ ООД"
-                            data-subtitle="МОНТАЖ КАУБОЯ ООД"
-                            data-description="Компактно решение за достъп, поддръжка и безопасно обслужване на технологични линии."
-                            data-image="https://github.com/darknight-rp/montage/blob/main/stomanena2.jpg?raw=true">
-                            <img src="https://github.com/darknight-rp/montage/blob/main/stomanena2.jpg?raw=true" alt="">
+                            data-title="Конструкция"
+                            data-subtitle="Основен модул"
+                            data-description="Елегантно подредена носеща система с акцент върху устойчивост, детайл и завършена визия."
+                            data-image="https://github.com/darknight-rp/montage/blob/main/stomanena3.jpg?raw=true">
+                            <img src="https://github.com/darknight-rp/montage/blob/main/stomanena3.jpg?raw=true" alt="Стоманена конструкция 2">
                             <div class="carousel-caption">
                                 <strong></strong>
                                 <span></span>
                             </div>
                         </button>
 
-                        <button class="carousel-item pos-3 active" type="button"
-                            data-title="Конструкция"
-                            data-subtitle="Основен модул"
-                            data-description="Елегантно подредена носеща система с акцент върху устойчивост, детайл и завършена визия."
-                            data-image="https://github.com/darknight-rp/montage/blob/main/stomanena3.jpg?raw=true">
-                            <img src="https://github.com/darknight-rp/montage/blob/main/stomanena3.jpg?raw=true" alt="">
+                        <button class="carousel-item pos-3" type="button"
+                            data-title="МОНТАЖ КАУБОЯ ООД"
+                            data-subtitle=""
+                            data-description="Компактно решение за достъп, поддръжка и безопасно обслужване на технологични линии."
+                            data-image="https://github.com/darknight-rp/montage/blob/main/stomanena2.jpg?raw=true">
+                            <img src="https://github.com/darknight-rp/montage/blob/main/stomanena2.jpg?raw=true" alt="Стоманена конструкция 3">
                             <div class="carousel-caption">
                                 <strong></strong>
                                 <span></span>
@@ -589,24 +607,19 @@ const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
 const closeModal = document.getElementById("closeModal");
 
-const defaultIndex = 2;
-let activeIndex = defaultIndex;
+let activeIndex = 1;
 
 function updatePositions() {
-    const ordered = [];
+    items.forEach((item, index) => {
+        const offset = (index - activeIndex + items.length) % items.length;
+        item.classList.remove("pos-1", "pos-2", "pos-3");
 
-    for (let i = 0; i < items.length; i++) {
-        ordered.push(items[(activeIndex - 2 + i + items.length) % items.length]);
-    }
-
-    items.forEach((item) => {
-        item.classList.remove("pos-1", "pos-2", "pos-3", "pos-4", "pos-5", "active");
-    });
-
-    ordered.forEach((item, index) => {
-        item.classList.add("pos-" + (index + 1));
-        if (index === 2) {
-            item.classList.add("active");
+        if (offset === 0) {
+            item.classList.add("pos-2");
+        } else if (offset === 1) {
+            item.classList.add("pos-3");
+        } else {
+            item.classList.add("pos-1");
         }
     });
 }
@@ -614,7 +627,9 @@ function updatePositions() {
 function openModal(item) {
     modalImage.src = item.dataset.image;
     modalImage.alt = item.dataset.title;
-    modalTitle.textContent = item.dataset.title + " - " + item.dataset.subtitle;
+    modalTitle.textContent = item.dataset.subtitle
+        ? item.dataset.title + " - " + item.dataset.subtitle
+        : item.dataset.title;
     modalDescription.textContent = item.dataset.description;
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
@@ -627,10 +642,8 @@ function closeModalFn() {
 
 items.forEach((item, index) => {
     item.addEventListener("mouseenter", () => {
-        if (carousel.matches(":hover")) {
-            activeIndex = index;
-            updatePositions();
-        }
+        activeIndex = index;
+        updatePositions();
     });
 
     item.addEventListener("click", () => {
@@ -641,7 +654,7 @@ items.forEach((item, index) => {
 });
 
 carousel.addEventListener("mouseleave", () => {
-    activeIndex = defaultIndex;
+    activeIndex = 1;
     updatePositions();
 });
 
