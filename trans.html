@@ -157,16 +157,216 @@ h1 {
 }
 
 .image-wrap {
-    overflow: hidden;
-    border-radius: 24px;
-    box-shadow: var(--shadow);
+    min-height: 360px;
+    padding: 8px 0;
+    background: transparent;
+    border: none;
 }
 
-.image-wrap img {
-    display: block;
+.carousel-shell {
+    position: relative;
+    height: 360px;
+    overflow: visible;
+}
+
+.carousel-shadow {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    width: 70%;
+    height: 32px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(88, 57, 27, 0.22) 0%, rgba(88, 57, 27, 0.08) 48%, transparent 72%);
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+.carousel-stage {
+    position: relative;
     width: 100%;
     height: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 42px;
+    left: 50%;
+    width: 210px;
+    height: 280px;
+    border: none;
+    padding: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #1b130d;
+    transform-origin: center bottom;
+    box-shadow:
+        0 22px 44px rgba(54, 31, 12, 0.22),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition:
+        transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.85s ease,
+        box-shadow 0.85s ease,
+        filter 0.85s ease;
+    opacity: 1;
+    filter: blur(0);
+    will-change: transform, opacity;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
     object-fit: cover;
+}
+
+.carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.58) 100%);
+    pointer-events: none;
+}
+
+.carousel-caption {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 1;
+    color: #fff7ef;
+    text-align: left;
+}
+
+.carousel-caption strong {
+    display: block;
+    font-size: 1.08rem;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.carousel-caption span {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 241, 225, 0.8);
+}
+
+.carousel-item.pos-1 {
+    z-index: 2;
+    transform: translateX(-108%) rotate(-17deg) scale(0.93);
+}
+
+.carousel-item.pos-2 {
+    z-index: 5;
+    transform: translateX(-50%) scale(1.04);
+    box-shadow:
+        0 28px 56px rgba(54, 31, 12, 0.28),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.carousel-item.pos-3 {
+    z-index: 2;
+    transform: translateX(8%) rotate(17deg) scale(0.93);
+}
+
+.carousel-item:hover {
+    filter: brightness(1.05);
+}
+
+.carousel-shell:not(:hover) .carousel-item {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(18px) scale(0.92);
+}
+
+.carousel-shell:not(:hover) .carousel-item.pos-2 {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0) scale(1.04);
+}
+
+.carousel-shell:hover .carousel-item.pos-1 {
+    transform: translateX(-116%) translateY(-6px) rotate(-21deg) scale(0.95);
+}
+
+.carousel-shell:hover .carousel-item.pos-2 {
+    transform: translateX(-50%) translateY(-8px) scale(1.06);
+}
+
+.carousel-shell:hover .carousel-item.pos-3 {
+    transform: translateX(16%) translateY(-6px) rotate(21deg) scale(0.95);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(23, 16, 10, 0.72);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-box {
+    position: relative;
+    width: min(920px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    border-radius: 28px;
+    background: #fffaf4;
+    box-shadow: 0 30px 80px rgba(29, 18, 10, 0.35);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(32, 21, 12, 0.75);
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+}
+
+.modal-image {
+    width: 100%;
+    height: min(62vh, 520px);
+    object-fit: cover;
+    display: block;
+}
+
+.modal-content {
+    padding: 24px 26px 28px;
+}
+
+.modal-content h3 {
+    margin: 0 0 10px;
+    color: var(--accent-dark);
+    font-size: 1.55rem;
+}
+
+.modal-content p {
+    margin: 0;
+    color: var(--muted);
 }
 
 .buttons {
@@ -214,6 +414,43 @@ button:hover {
     .card {
         padding: 24px;
     }
+
+    .carousel-shell {
+        height: 320px;
+    }
+
+    .carousel-item {
+        width: 168px;
+        height: 232px;
+    }
+
+    .carousel-item.pos-1 {
+        transform: translateX(-98%) rotate(-15deg) scale(0.9);
+    }
+
+    .carousel-item.pos-2 {
+        transform: translateX(-50%) scale(1.02);
+    }
+
+    .carousel-item.pos-3 {
+        transform: translateX(-2%) rotate(15deg) scale(0.9);
+    }
+
+    .carousel-shell:not(:hover) .carousel-item.pos-2 {
+        transform: translateX(-50%) translateY(0) scale(1.02);
+    }
+
+    .carousel-shell:hover .carousel-item.pos-1 {
+        transform: translateX(-106%) translateY(-4px) rotate(-19deg) scale(0.92);
+    }
+
+    .carousel-shell:hover .carousel-item.pos-2 {
+        transform: translateX(-50%) translateY(-6px) scale(1.04);
+    }
+
+    .carousel-shell:hover .carousel-item.pos-3 {
+        transform: translateX(6%) translateY(-4px) rotate(19deg) scale(0.92);
+    }
 }
 </style>
 </head>
@@ -260,7 +497,47 @@ button:hover {
 
         <aside class="side-panel">
             <div class="image-wrap">
-                <img src="https://github.com/darknight-rp/montage/blob/main/lenta1.jpg?raw=true" alt="Индустриална транспортна лента">
+                <div class="carousel-shell" id="carousel">
+                    <div class="carousel-shadow"></div>
+
+                    <div class="carousel-stage">
+                        <button class="carousel-item pos-1" type="button"
+                            data-title="Транспортна лента"
+                            data-subtitle=""
+                            data-description="Надеждно съоръжение за непрекъснато транспортиране на материали в индустриални линии."
+                            data-image="https://github.com/darknight-rp/montage/blob/main/lenta1.jpg?raw=true">
+                            <img src="https://github.com/darknight-rp/montage/blob/main/lenta1.jpg?raw=true" alt="Транспортна лента 1">
+                            <div class="carousel-caption">
+                                <strong></strong>
+                                <span></span>
+                            </div>
+                        </button>
+
+                        <button class="carousel-item pos-2" type="button"
+                            data-title="Транспортна лента"
+                            data-subtitle=""
+                            data-description="Гъвкаво решение за пренасяне на сухи, влажни, насипни или парчести продукти."
+                            data-image="https://github.com/darknight-rp/montage/blob/main/lenta1.jpg?raw=true">
+                            <img src="https://github.com/darknight-rp/montage/blob/main/lenta1.jpg?raw=true" alt="Транспортна лента 2">
+                            <div class="carousel-caption">
+                                <strong></strong>
+                                <span></span>
+                            </div>
+                        </button>
+
+                        <button class="carousel-item pos-3" type="button"
+                            data-title="Транспортна лента"
+                            data-subtitle=""
+                            data-description="Подходяща за постоянен поток от материали и лесно интегриране в производствени процеси."
+                            data-image="https://github.com/darknight-rp/montage/blob/main/lenta1.jpg?raw=true">
+                            <img src="https://github.com/darknight-rp/montage/blob/main/lenta1.jpg?raw=true" alt="Транспортна лента 3">
+                            <div class="carousel-caption">
+                                <strong></strong>
+                                <span></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="stat">
@@ -311,5 +588,92 @@ button:hover {
     </section>
 </main>
 
+<div class="modal" id="imageModal">
+    <div class="modal-box">
+        <button class="modal-close" type="button" id="closeModal">&times;</button>
+        <img class="modal-image" id="modalImage" src="" alt="">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+const carousel = document.getElementById("carousel");
+const items = Array.from(document.querySelectorAll(".carousel-item"));
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const closeModal = document.getElementById("closeModal");
+
+let activeIndex = 1;
+
+function updatePositions() {
+    items.forEach((item, index) => {
+        const offset = (index - activeIndex + items.length) % items.length;
+        item.classList.remove("pos-1", "pos-2", "pos-3");
+
+        if (offset === 0) {
+            item.classList.add("pos-2");
+        } else if (offset === 1) {
+            item.classList.add("pos-3");
+        } else {
+            item.classList.add("pos-1");
+        }
+    });
+}
+
+function openModal(item) {
+    modalImage.src = item.dataset.image;
+    modalImage.alt = item.dataset.title;
+    modalTitle.textContent = item.dataset.subtitle
+        ? item.dataset.title + " - " + item.dataset.subtitle
+        : item.dataset.title;
+    modalDescription.textContent = item.dataset.description;
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closeModalFn() {
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+items.forEach((item, index) => {
+    item.addEventListener("mouseenter", () => {
+        activeIndex = index;
+        updatePositions();
+    });
+
+    item.addEventListener("click", () => {
+        activeIndex = index;
+        updatePositions();
+        openModal(item);
+    });
+});
+
+carousel.addEventListener("mouseleave", () => {
+    activeIndex = 1;
+    updatePositions();
+});
+
+closeModal.addEventListener("click", closeModalFn);
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        closeModalFn();
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeModalFn();
+    }
+});
+
+updatePositions();
+</script>
 </body>
 </html>
