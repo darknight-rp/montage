@@ -2,89 +2,353 @@
 <html lang="bg">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Резервоари</title>
 
 <style>
+:root {
+    --bg: #f4efe6;
+    --surface: rgba(255, 250, 242, 0.92);
+    --surface-strong: #fffdf8;
+    --text: #2b241c;
+    --muted: #6f6256;
+    --accent: #c56a1b;
+    --accent-dark: #8f4710;
+    --line: rgba(123, 92, 62, 0.16);
+    --shadow: 0 18px 45px rgba(74, 48, 22, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    margin:0;
-    font-family:Arial;
-    background:#0f172a;
-    color:white;
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(230, 178, 102, 0.35), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(155, 101, 42, 0.18), transparent 28%),
+        linear-gradient(135deg, #ede4d5 0%, #f7f3eb 48%, #e9dcc9 100%);
+    line-height: 1.7;
 }
 
-header {
-    padding:30px;
-    text-align:center;
-    background:rgba(0,0,0,0.6);
+.hero {
+    padding: 72px 20px 48px;
+    text-align: center;
 }
 
-h1 { color:#fbbf24; }
+.hero-box {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 38px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 28px;
+    background: linear-gradient(145deg, rgba(88, 57, 27, 0.88), rgba(46, 31, 18, 0.94));
+    box-shadow: var(--shadow);
+    color: #fffaf4;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffd8ae;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 18px 0 12px;
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    line-height: 1.1;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: rgba(255, 247, 238, 0.84);
+    font-size: 1.05rem;
+}
 
 .container {
-    max-width:900px;
-    margin:auto;
-    padding:30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 56px;
 }
 
-img {
-    width:100%;
-    border-radius:15px;
-    margin-top:20px;
+.grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.card {
+    padding: 28px;
+    border-radius: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.5rem;
+    color: var(--accent-dark);
+}
+
+.card h3 {
+    margin: 24px 0 10px;
+    font-size: 1.05rem;
+    color: var(--accent);
+}
+
+.lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+}
+
+.feature-list,
+.device-list {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.feature-list li,
+.device-list li {
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: var(--surface-strong);
+    border: 1px solid var(--line);
+}
+
+.feature-list strong,
+.device-list strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--accent-dark);
+}
+
+.side-panel {
+    display: grid;
+    gap: 24px;
+}
+
+.stat {
+    padding: 20px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #fff8ee 0%, #f2e4cf 100%);
+    border: 1px solid rgba(156, 115, 70, 0.18);
+}
+
+.stat strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.7rem;
+    color: var(--accent-dark);
+}
+
+.image-wrap {
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.image-wrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .buttons {
-    display:flex;
-    gap:10px;
-    margin-top:25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
 }
 
 button {
-    padding:12px 15px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:bold;
+    padding: 13px 18px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 0.98rem;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
-.back { background:#fbbf24; }
-.home { background:#22c55e; }
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(61, 39, 20, 0.16);
+}
+
+.back {
+    background: linear-gradient(135deg, #d98b34, #b55f17);
+    color: white;
+}
+
+.home {
+    background: linear-gradient(135deg, #4d7f4c, #2d5e31);
+    color: white;
+}
+
+@media (max-width: 860px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 36px;
+    }
+
+    .hero-box,
+    .card {
+        padding: 24px;
+    }
+}
 </style>
 </head>
-
 <body>
 
-<header>
-<h1>Резервоари</h1>
+<header class="hero">
+    <div class="hero-box">
+        <span class="eyebrow">Индустриално оборудване</span>
+        <h1>Резервоари</h1>
+        <p>Проектиране, изработка, монтаж и поддръжка на промишлени резервоари за съхранение на вода, горива, масла, химически продукти и технологични течности.</p>
+    </div>
 </header>
 
-<div class="container">
+<main class="container">
+    <div class="grid">
+        <section class="card">
+            <h2>1. Предназначение и принцип на работа на резервоарите</h2>
+            <p class="lead">
+                Резервоарите са основни съоръжения в промишлеността, земеделието, енергетиката и строителството. Те служат за безопасно съхранение, дозиране и подаване на различни течности според нуждите на конкретния обект.
+            </p>
+            <p>
+                Конструкцията на резервоара се избира според вида на съхранявания продукт, обема, работната среда и изискванията за безопасност. Използват се вертикални, хоризонтални, надземни и подземни решения, изработени от подходящи метални материали и защитни покрития.
+            </p>
+            <p>
+                При правилно проектиране и монтаж резервоарите осигуряват надеждна експлоатация, лесна поддръжка и контрол върху нивото, налягането, температурата и състоянието на съхранявания продукт. Те могат да бъдат оборудвани с люкове, тръбни връзки, нивомери, вентилация, стълби, площадки и системи за автоматизация.
+            </p>
+            <p>
+                Поддръжката включва проверка на заваръчни шевове, антикорозионна защита, почистване, ремонт на арматура и контрол на всички елементи, които влияят върху безопасната работа на съоръжението.
+            </p>
 
-<p>🏭 Резервоари
+            <h3>Основни предимства</h3>
+            <ul class="feature-list">
+                <li>
+                    <strong>Сигурно съхранение</strong>
+                    Осигуряват контролирана и безопасна среда за течности, горива, масла, вода и други технологични продукти.
+                </li>
+                <li>
+                    <strong>Гъвкаво приложение</strong>
+                    Могат да бъдат изработени в различни размери, форми и конфигурации според нуждите на производството или склада.
+                </li>
+                <li>
+                    <strong>Дълъг експлоатационен живот</strong>
+                    Качествената метална конструкция и подходящата антикорозионна защита намаляват риска от повреди и течове.
+                </li>
+            </ul>
+        </section>
 
-Изработка, монтаж, демонтаж и поддръжка на промишлени резервоари за съхранение на течности, горива, вода и технологични материали.
+        <aside class="side-panel">
+            <div class="image-wrap">
+                <svg viewBox="0 0 800 560" role="img" aria-label="Илюстрация на промишлени резервоари" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="tankBg" x1="0" x2="1" y1="0" y2="1">
+                            <stop offset="0" stop-color="#f6d8ad"/>
+                            <stop offset="1" stop-color="#8f4710"/>
+                        </linearGradient>
+                        <linearGradient id="metal" x1="0" x2="1">
+                            <stop offset="0" stop-color="#f7efe4"/>
+                            <stop offset="0.5" stop-color="#b8a28b"/>
+                            <stop offset="1" stop-color="#fff7eb"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="800" height="560" fill="url(#tankBg)"/>
+                    <rect x="0" y="390" width="800" height="170" fill="#5f3b1d" opacity="0.38"/>
+                    <g transform="translate(120 120)">
+                        <ellipse cx="150" cy="55" rx="112" ry="34" fill="#fff6e8" opacity="0.85"/>
+                        <rect x="38" y="55" width="224" height="270" fill="url(#metal)"/>
+                        <ellipse cx="150" cy="325" rx="112" ry="34" fill="#9b8066"/>
+                        <ellipse cx="150" cy="55" rx="112" ry="34" fill="none" stroke="#70451f" stroke-width="6"/>
+                        <line x1="38" y1="110" x2="262" y2="110" stroke="#70451f" stroke-width="4" opacity="0.35"/>
+                        <line x1="38" y1="178" x2="262" y2="178" stroke="#70451f" stroke-width="4" opacity="0.35"/>
+                        <line x1="38" y1="246" x2="262" y2="246" stroke="#70451f" stroke-width="4" opacity="0.35"/>
+                    </g>
+                    <g transform="translate(410 175)">
+                        <ellipse cx="120" cy="45" rx="92" ry="28" fill="#fff6e8" opacity="0.85"/>
+                        <rect x="28" y="45" width="184" height="230" fill="url(#metal)"/>
+                        <ellipse cx="120" cy="275" rx="92" ry="28" fill="#9b8066"/>
+                        <ellipse cx="120" cy="45" rx="92" ry="28" fill="none" stroke="#70451f" stroke-width="5"/>
+                        <line x1="28" y1="102" x2="212" y2="102" stroke="#70451f" stroke-width="4" opacity="0.35"/>
+                        <line x1="28" y1="164" x2="212" y2="164" stroke="#70451f" stroke-width="4" opacity="0.35"/>
+                        <line x1="28" y1="226" x2="212" y2="226" stroke="#70451f" stroke-width="4" opacity="0.35"/>
+                    </g>
+                </svg>
+            </div>
 
-Работим с метални конструкции и индустриално оборудване, като осигуряваме надеждност, дълъг експлоатационен живот и безопасна работа на съоръженията.
+            <div class="stat">
+                <strong>24/7</strong>
+                Проектирани за продължителна работа в производствени, складови и промишлени условия.
+                <strong>Контрол</strong>
+                Позволяват монтаж на системи за измерване на ниво, температура, налягане и дебит.
+            </div>
 
-✔ Промишлени резервоари
-✔ Резервоари за горива и течности
-✔ Метални конструкции
-✔ Ремонт и реконструкция
-✔ Безопасност и високо качество</p>
+            <div class="stat">
+                <strong>Модулни решения</strong>
+                Изработват се според необходимия обем, място за монтаж и вида на съхранявания продукт.
+                <strong>Безопасност</strong>
+                Конструкцията се съобразява с изискванията за плътност, устойчивост и лесна поддръжка.
+            </div>
+        </aside>
+    </div>
 
-<img src="">
-<img src="e">
-<img src="">
+    <section class="card" style="margin-top:24px;">
+        <h2>2. Устройство</h2>
+        <ul class="device-list">
+            <li>
+                <strong>2.1. Корпус на резервоара</strong>
+                Основната метална конструкция, която осигурява здравина, устойчивост и необходимия полезен обем за съхранение.
+            </li>
+            <li>
+                <strong>2.2. Дъно и покрив</strong>
+                Изпълняват се според типа резервоар и работните условия, като осигуряват плътност и защита на съдържанието.
+            </li>
+            <li>
+                <strong>2.3. Тръбни връзки и арматура</strong>
+                Включват входове, изходи, клапани, фланци и връзки за пълнене, изпразване и технологично обслужване.
+            </li>
+            <li>
+                <strong>2.4. Контролни и измервателни системи</strong>
+                Нивомери, датчици, манометри и други устройства за следене на работните параметри.
+            </li>
+            <li>
+                <strong>2.5. Люкове, стълби и площадки</strong>
+                Осигуряват достъп за инспекция, почистване, ремонт и безопасна експлоатация.
+            </li>
+            <li>
+                <strong>2.6. Защитни покрития</strong>
+                Антикорозионни бои, грундове и специални покрития предпазват конструкцията от външни влияния и химическо натоварване.
+            </li>
+        </ul>
 
-<div class="buttons">
-
-<!-- IMPORTANT: always works -->
-<button class="back" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }">← Назад</button>
-
-<button class="home" onclick="window.location.href='index.html'">🏠 Home</button>
-
-</div>
-
-</div>
+        <div class="buttons">
+            <button class="back" onclick="if (window.history.length > 1) { window.history.back(); } else { window.location.href='index.html'; }">Назад</button>
+            <button class="home" onclick="window.location.href='index.html'">Начало</button>
+        </div>
+    </section>
+</main>
 
 </body>
 </html>
